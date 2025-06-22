@@ -1,0 +1,13 @@
+file 'C:\Users\sambh\Downloads\AI_Girls_Database\frames_js\frame_1.png'
+duration 2
+file 'C:\Users\sambh\Downloads\AI_Girls_Database\frames_js\frame_2.png'
+duration 2
+file 'C:\Users\sambh\Downloads\AI_Girls_Database\frames_js\frame_3.png'
+duration 2
+file 'C:\Users\sambh\Downloads\AI_Girls_Database\frames_js\frame_4.png'
+duration 2
+file 'C:\Users\sambh\Downloads\AI_Girls_Database\frames_js\frame_5.png'
+duration 2
+file 'C:\Users\sambh\Downloads\AI_Girls_Database\frames_js\frame_6.png'
+duration 2
+file 'C:\Users\sambh\Downloads\AI_Girls_Database\frames_js\frame_6.png'
