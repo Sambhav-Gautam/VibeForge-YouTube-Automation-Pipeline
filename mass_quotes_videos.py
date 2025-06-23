@@ -12,7 +12,7 @@ img_folder = r"C:\Users\sambh\Downloads\AI_Girls_Database\gemini-downloader\down
 music_folder = r"C:\Users\sambh\Downloads\AI_Girls_Database\youtube_music"
 output_folder = r"C:\Users\sambh\Downloads\AI_Girls_Database\youtube_quotes"
 target_width, target_height = 608, 1080
-duration = 2  # 2-second video
+duration = 4  # 4-second video
 
 # === LOGGING ===
 def log(msg):
