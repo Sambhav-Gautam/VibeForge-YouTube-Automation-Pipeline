@@ -1,0 +1,12 @@
+# Ignore Python cache and virtual environment
+__pycache__/
+*.pyc
+.venv/
+
+# Ignore OAuth secrets and tokens
+token.json
+client_secrets.json
+
+# Ignore logs and misc
+*.log
+used_videos.txt
