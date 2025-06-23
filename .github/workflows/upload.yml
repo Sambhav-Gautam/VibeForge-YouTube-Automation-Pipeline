@@ -3,7 +3,7 @@ name: Daily YouTube Upload
 on:
   schedule:
     - cron: '30 17 * * *'  # ⏰ Runs every day at 11:00 PM IST (5:30 PM UTC)
-  workflow_dispatch:        # ✅ Enables manual Run Workflow button
+  workflow_dispatch:
 
 jobs:
   upload:
@@ -24,8 +24,8 @@ jobs:
 
       - name: Restore client_secrets.json and token.json
         run: |
-          echo "${{ secrets.YT_CLIENT_SECRET_JSON }}" > client_secrets.json
-          echo "${{ secrets.YT_TOKEN_JSON }}" > token.json
+          echo "${{ secrets.YT_CLIENT_SECRET_JSON }}" | base64 -d > client_secrets.json
+          echo "${{ secrets.YT_TOKEN_JSON }}" | base64 -d > token.json
 
       - name: Upload to YouTube
         run: python upload_youtube.py
