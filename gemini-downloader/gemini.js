@@ -7,12 +7,8 @@ import http from 'http';
 
 puppeteer.use(StealthPlugin());
 
-// const URL = 'https://g.co/gemini/share/92562fc20b5d';
-// const URL = 'https://g.co/gemini/share/b9b48f7065fa';
-// const URL = 'https://g.co/gemini/share/a174d55bb410';
-// const URL = 'https://g.co/gemini/share/fac01761263c';
-// const URL = 'https://g.co/gemini/share/0b050aceab2e';
-const URL = 'https://g.co/gemini/share/177018026ddd';
+
+const URL = 'https://g.co/gemini/share/b169cc9d7bf7';
 
 // Ensure the download directory exists
 const downloadDir = './temp_images';
