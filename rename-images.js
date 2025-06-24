@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 
-const folderPath = 'C:\\Users\\sambh\\Downloads\\AI_Girls_Database\\gemini-downloader\\downloads_stories';
+const folderPath = 'C:\\Users\\sambh\\Downloads\\AI_Girls_Database\\gemini-downloader\\temp_images';
 
 (async () => {
   try {
@@ -11,7 +11,7 @@ const folderPath = 'C:\\Users\\sambh\\Downloads\\AI_Girls_Database\\gemini-downl
       .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
       .map(file => ({ name: file }));
 
-    let count = 1;
+    let count = 36;
 
     for (const { name } of imageFiles) {
       const ext = path.extname(name).toLowerCase();
