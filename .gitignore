@@ -10,3 +10,5 @@ client_secrets.json
 # Ignore logs and misc
 *.log
 used_videos.txt
+client_b64.txt
+token_b64.txt
