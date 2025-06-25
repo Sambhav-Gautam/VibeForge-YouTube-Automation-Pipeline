@@ -8,10 +8,10 @@ import http from 'http';
 puppeteer.use(StealthPlugin());
 
 
-const URL = 'https://g.co/gemini/share/b169cc9d7bf7';
+const URL = 'https://g.co/gemini/share/670e5d75e57f';
 
 // Ensure the download directory exists
-const downloadDir = './temp_images';
+const downloadDir = './temp_downloads_stories';
 
 if (!fs.existsSync(downloadDir)) {
   fs.mkdirSync(downloadDir);
@@ -66,7 +66,7 @@ function downloadImage(url, filepath) {
 
     console.log(`🖼️ Found ${imageUrls.length} images.`);
 
-    let count = 36; // Starting from 36 to avoid overwriting existing files
+    let count = 1; // Starting from 36 to avoid overwriting existing files
     for (const url of imageUrls) {
       const filename = path.join(downloadDir, `${count++}.jpg`);
       try {
