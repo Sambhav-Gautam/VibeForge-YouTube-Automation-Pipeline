@@ -1,10 +1,16 @@
 import os
-from gtts import gTTS
-from moviepy.editor import ImageClip, concatenate_videoclips, AudioFileClip
 import shutil
+import subprocess
+from gtts import gTTS
+from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips
+from PIL import Image
+from pydub import AudioSegment
+from moviepy.video.fx.fadein import fadein
+from moviepy.video.fx.fadeout import fadeout
 
-# Path where your 70 images are saved as 1.jpg to 70.jpg
-folder_path = r"C:\Users\sambh\Downloads\AI_Girls_Database\gemini-downloader\downloads_stories"
+
+# === CONFIG ===
+folder_path = r"C:\Users\sambh\Downloads\AI_GIRLS_DATABASE\gemini-downloader\downloads_stories"
 output_folder = "final_story_videos"
 os.makedirs(output_folder, exist_ok=True)
 
@@ -23,7 +29,7 @@ stories = [
         "Jungle mein bhoot aaya, sab jaanwar bhag rahe the",
         "Rabbit aur kitten ek dusre ko pakad ke bhaage",
         "Pahaadon ka rastaa tha, slippery aur dangerous",
-        "Kitten fisaal gayi, rabbit chillaya, 'NOOO!'",
+        "Kitten fisaal gayi, rabbit chillaya, 'NOOO'",
         "Uski aankhon ke saamne, kitten neeche gir gayi",
         "Rabbit chillaata raha, par kuch nahi kar paya",
         "Us din ke baad, usne kabhi khud pe trust nahi kiya"
@@ -42,14 +48,14 @@ stories = [
         "Har din usko doodh diya, zakhm saaf kiya",
         "Puppy bada hota gaya, par silent raha",
         "Ek din ladka gir gaya, aur puppy ne usko bacha liya",
-        "Logo ne bola, ‘yeh to wild dog hai, kaat lega!’",
+        "Logo ne bola, ‘yeh to wild dog hai, kaat lega’",
         "Par usne sirf ladke ke pair choome",
         "Par agli subah, woh puppy wapas jungle chala gaya... forever"
     ],
     [
         "Chhota elephant jungle school mein first day gaya",
         "Sab uske size ka mazaak udaane lage",
-        "Ek monkey bola ‘yeh to fat hai, swing bhi todega!’",
+        "Ek monkey bola ‘yeh to fat hai, swing bhi todega’",
         "Elephant chup raha, sir jhukakar classroom gaya",
         "Exam mein sab fail, sirf elephant ne top kiya",
         "Sabne claps diye, monkey bhi sharma gaya",
@@ -66,7 +72,7 @@ stories = [
     ],
     [
         "Chhota mouse har din jungle ke school mein top karta",
-        "Lekin usko hamesha bully kiya jaata: ‘nerd!’",
+        "Lekin usko hamesha bully kiya jaata: ‘nerd’",
         "Ek din uska homework chura diya gaya",
         "Teacher ne usko punish kiya, bina galti ke",
         "Mouse ka patience tut gaya, usne school chhod diya",
@@ -101,43 +107,90 @@ stories = [
         "Uski aankhon mein gratitude tha, par bol nahi sakta tha"
     ]
 ]
-
-# === Functions ===
-
-def generate_tts(text, filename):
+# === TTS with speed-up ===
+def generate_tts(text, filename, speed=1.2):
     tts = gTTS(text=text, lang='hi')
-    tts.save(filename)
+    raw = filename.replace(".mp3", "_raw.mp3")
+    tts.save(raw)
+    seg = AudioSegment.from_file(raw)
+    faster = seg._spawn(seg.raw_data, overrides={"frame_rate": int(seg.frame_rate * speed)})
+    faster = faster.set_frame_rate(24000)
+    faster.export(filename, format="mp3")
+    os.remove(raw)
 
-def create_story_video(story_index, story_lines, start_image_index):
-    print(f"\n🔧 Creating story {story_index + 1}...")
+# === Resize image to even width and 1080p height ===
+def ensure_even_width(img_path, target_h=1080):
+    img = Image.open(img_path)
+    ar = img.width / img.height
+    w = int(target_h * ar)
+    if w % 2: w += 1
+    img = img.resize((w, target_h), Image.LANCZOS)
+    out = img_path.replace(".png", "_resized.png")
+    img.save(out)
+    return out
+
+# === Create one video ===
+def create_video_with_ffmpeg_safe(story_lines, story_index):
+    print(f"\n🔧 Creating video for story {story_index}…")
+    temp_dir = f"temp_build_{story_index}"
+    os.makedirs(temp_dir, exist_ok=True)
+    audio_list = os.path.join(temp_dir, "audios.txt")
+    open(audio_list, "w").close()
 
     clips = []
-    temp_audio_dir = "temp_audio"
-    os.makedirs(temp_audio_dir, exist_ok=True)
+    TRANSITION_DURATION = 0.5  # Total time added per frame for transitions (fade in/out combined)
 
     for i, line in enumerate(story_lines):
-        img_path = os.path.join(folder_path, f"{start_image_index + i}.png")
-        audio_path = os.path.join(temp_audio_dir, f"frame_{i + 1}.mp3")
+        img_num = (story_index - 1) * 7 + (i + 1)
+        img_in = os.path.join(folder_path, f"{img_num}.png")
+        img_fixed = ensure_even_width(img_in)
 
-        # Generate voiceover
-        generate_tts(line, audio_path)
-        audio_clip = AudioFileClip(audio_path)
+        audio_mp3 = os.path.join(temp_dir, f"line_{i+1}.mp3")
+        generate_tts(line, audio_mp3)
 
-        # Create video from image and audio
-        img_clip = ImageClip(img_path).set_duration(audio_clip.duration).set_audio(audio_clip)
-        img_clip = img_clip.set_fps(24).resize(height=1080)
+        ac = AudioFileClip(audio_mp3)
+        duration = ac.duration
+        ac.close()
 
-        clips.append(img_clip)
+        adjusted_duration = duration + TRANSITION_DURATION
+        base_clip = ImageClip(img_fixed, duration=adjusted_duration)
+        zoom_clip = base_clip.resize(lambda t: 1 + 0.03 * t)
+        animated = fadein(fadeout(zoom_clip, TRANSITION_DURATION/2), TRANSITION_DURATION/2)
 
-    # Combine all 7 clips
-    final_video = concatenate_videoclips(clips, method="compose")
-    output_path = os.path.join(output_folder, f"story_{story_index + 1}.mp4")
-    final_video.write_videofile(output_path, fps=24, codec='libx264', audio_codec='aac')
+        clips.append(animated.set_fps(24))
 
-    shutil.rmtree(temp_audio_dir)
-    print(f"✅ Saved: {output_path}")
+        with open(audio_list, "a", encoding="utf-8") as f:
+            f.write(f"file '{os.path.abspath(audio_mp3)}'\n")
 
-# === Create Videos ===
+    final_clips = [clips[0]]
+    for c in clips[1:]:
+        final_clips.append(c.crossfadein(0.4))
 
-for idx, story in enumerate(stories):
-    create_story_video(idx, story, start_image_index=idx * 7 + 1)
+    temp_vid = os.path.join(temp_dir, "video.mp4")
+    concat = concatenate_videoclips(final_clips, method="compose", padding=-0.4)
+    concat.write_videofile(temp_vid, fps=24, codec="libx264", audio=False)
+
+    audio_out = os.path.join(temp_dir, "audio.mp3")
+    subprocess.run([
+        "ffmpeg", "-y", "-f", "concat", "-safe", "0",
+        "-i", audio_list, "-c", "copy", audio_out
+    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    final = os.path.join(output_folder, f"story_{story_index}.mp4")
+    subprocess.run([
+        "ffmpeg", "-y",
+        "-i", temp_vid, "-i", audio_out,
+        "-c:v", "libx264", "-preset", "medium", "-crf", "23",
+        "-c:a", "aac", "-b:a", "192k",
+        "-pix_fmt", "yuv420p", "-movflags", "+faststart",
+        final
+    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    shutil.rmtree(temp_dir)
+    print(f"✅ Saved: {final}")
+
+# === Run for all stories ===
+for idx, story in enumerate(stories, start=1):
+    create_video_with_ffmpeg_safe(story, idx)
+
+print("\n🎉 All stories rendered in 'final_story_videos/'")
