@@ -1,0 +1,104 @@
+name: Daily Motivational Shorts Upload
+
+on:
+  schedule:
+    - cron: '30 19 * * *'  # Runs every day at 1:00 AM IST (which is 7:30 PM UTC)
+  workflow_dispatch:
+
+jobs:
+  upload_video:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install --upgrade google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Decode Client Secret
+        run: |
+          echo "${{ secrets.MOTIVATIONAL_SECRET }}" | base64 -d > client_motivational_quotes.json
+
+      - name: Upload Video
+        run: |
+          python <<EOF
+          import os
+          import json
+          import random
+          from googleapiclient.discovery import build
+          from googleapiclient.http import MediaFileUpload
+          from google_auth_oauthlib.flow import InstalledAppFlow
+          from google.auth.transport.requests import Request
+          import pickle
+
+          SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
+          VIDEO_DIR = "youtube_quotes"
+
+          def get_authenticated_service():
+              creds = None
+              if os.path.exists("token_motivational.pickle"):
+                  with open("token_motivational.pickle", "rb") as token:
+                      creds = pickle.load(token)
+              if not creds or not creds.valid:
+                  if creds and creds.expired and creds.refresh_token:
+                      creds.refresh(Request())
+                  else:
+                      flow = InstalledAppFlow.from_client_secrets_file(
+                          "client_motivational_quotes.json", SCOPES)
+                      creds = flow.run_console()
+                  with open("token_motivational.pickle", "wb") as token:
+                      pickle.dump(creds, token)
+              return build("youtube", "v3", credentials=creds)
+
+          def get_next_video():
+              files = sorted([f for f in os.listdir(VIDEO_DIR) if f.endswith(\".mp4\")], key=lambda x: int(x.split('.')[0]))
+              total = len(files)
+              index_file = \"current_index_motivational.txt\"
+              index = 0
+              if os.path.exists(index_file):
+                  with open(index_file, \"r\") as f:
+                      index = int(f.read().strip())
+              next_file = files[index % total]
+              with open(index_file, \"w\") as f:
+                  f.write(str((index + 1) % total))
+              return next_file
+
+          youtube = get_authenticated_service()
+          next_video = get_next_video()
+          base = os.path.splitext(next_video)[0]
+          video_path = os.path.join(VIDEO_DIR, next_video)
+          title_path = os.path.join(VIDEO_DIR, f\"{base}_motivational_title.txt\")
+          desc_path = os.path.join(VIDEO_DIR, f\"{base}_motivational_description.txt\")
+
+          with open(title_path, \"r\") as f:
+              title = f.read()
+          with open(desc_path, \"r\") as f:
+              description = f.read()
+
+          request_body = {
+              \"snippet\": {
+                  \"categoryId\": \"22\",
+                  \"title\": title,
+                  \"description\": description,
+                  \"tags\": [\"Motivation\", \"Shorts\", \"Quotes\"]
+              },
+              \"status\": {
+                  \"privacyStatus\": \"public\"
+              }
+          }
+
+          media = MediaFileUpload(video_path, mimetype='video/mp4', resumable=True)
+          response = youtube.videos().insert(
+              part=\"snippet,status\",
+              body=request_body,
+              media_body=media
+          ).execute()
+
+          print(f\"✔ Uploaded: {response['id']}\")
+          EOF

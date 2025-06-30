@@ -12,3 +12,5 @@ client_secrets.json
 used_videos.txt
 client_b64.txt
 token_b64.txt
+client_motivational_quotes.json
+tokens_motivational.json
