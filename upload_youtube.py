@@ -7,7 +7,7 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request 
 
 
-VIDEO_DIR = "youtube_quotes"
+VIDEO_DIR = "generated_shorts"
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 
 def get_authenticated_service():
