@@ -8,10 +8,10 @@ import http from 'http';
 puppeteer.use(StealthPlugin());
 
 
-const URL = 'https://g.co/gemini/share/d3898e794800';
+const URL = 'https://g.co/gemini/share/dc3c51301155';
 
 // Ensure the download directory exists
-const downloadDir = './downloads_brainrot';
+const downloadDir = './downloads_illusions';
 
 if (!fs.existsSync(downloadDir)) {
   fs.mkdirSync(downloadDir);
