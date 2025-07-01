@@ -17,3 +17,4 @@ tokens_motivational.json
 client_motivational_base64.txt
 token_motivational_base64.txt
 token_motivational.pickle
+node_modules
