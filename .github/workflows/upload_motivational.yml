@@ -33,3 +33,17 @@ jobs:
       - name: Upload Motivational Video
         run: |
           python local_upload_test_motivational.py
+
+      - name: Configure Git for pushing updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit updated index file
+        run: |
+          git add current_index_motivational.txt
+          git commit -m "Update current index for next motivational upload" || echo "No changes to commit"
+
+      - name: Push updated index to repository
+        run: |
+          git push
