@@ -27,4 +27,4 @@ jobs:
           echo "${{ secrets.YT_REFRESH_TOKEN_JSON }}" | base64 -d > refresh_token.json
 
       - name: Upload to YouTube
-        run: python upload_youtube.py
+        run: python youtube_automation/upload_youtube.py

@@ -1,21 +1,58 @@
-# Ignore Python cache and virtual environment
+# ===============================
+# Python
+# ===============================
 __pycache__/
-*.pyc
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
 .venv/
+env/
+venv/
+pip-wheel-metadata/
 
-# Ignore OAuth secrets and tokens
+# ===============================
+# Node
+# ===============================
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# ===============================
+# VSCode and IDE settings
+# ===============================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ===============================
+# OS-specific
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Logs
+# ===============================
+*.log
+
+# ===============================
+# OAuth secrets and tokens
+# ===============================
 token.json
 client_secrets.json
-
-# Ignore logs and misc
-*.log
-used_videos.txt
-client_b64.txt
-token_b64.txt
-client_motivational_quotes.json
 tokens_motivational.json
-client_motivational_base64.txt
-token_motivational_base64.txt
-token_motivational.pickle
-node_modules
+client_motivational_quotes.json
 refresh_token.json
+*.pickle
+*.b64
+*base64.txt
+used_videos.txt
+
+# ===============================
+# Secrets directories (if any)
+# ===============================
+Secrets/
