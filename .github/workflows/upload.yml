@@ -20,12 +20,11 @@ jobs:
 
       - name: Install YouTube Dependencies
         run: |
-          pip install google-auth-oauthlib google-api-python-client
+          pip install google-api-python-client
 
-      - name: Restore client_secrets.json and token.json
+      - name: Restore refresh_token.json
         run: |
-          echo "${{ secrets.YT_CLIENT_SECRET_JSON }}" | base64 -d > client_secrets.json
-          echo "${{ secrets.YT_TOKEN_JSON }}" | base64 -d > token.json
+          echo "${{ secrets.YT_REFRESH_TOKEN_JSON }}" | base64 -d > refresh_token.json
 
       - name: Upload to YouTube
         run: python upload_youtube.py

@@ -18,3 +18,4 @@ client_motivational_base64.txt
 token_motivational_base64.txt
 token_motivational.pickle
 node_modules
+refresh_token.json
