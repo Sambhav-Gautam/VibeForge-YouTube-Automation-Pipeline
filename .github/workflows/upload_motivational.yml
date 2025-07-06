@@ -1,39 +1,49 @@
-name: BrainRot YouTube Auto Upload
+name: Auto Upload Motivational Shorts
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '30 15 */2 * *' # every alternate day at 9 PM IST
+    - cron: '30 19 * * *'  # Runs daily at 1:00 AM IST (19:30 UTC)
+  workflow_dispatch:        # Enables "Run workflow" button for manual testing
 
 jobs:
-  upload:
+  upload_motivational:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+          pip install --upgrade google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
 
-      - name: Decode OAuth Secrets
+      - name: Decode Client Secret
         run: |
-          mkdir -p brainRot_automation/Secrets
-          echo "$CLIENT_SECRET_BRAINROT_B64" | base64 -d > brainRot_automation/Secrets/client_secret_brainrot.json
-          echo "$TOKEN_BRAINROT_B64" | base64 -d > brainRot_automation/Secrets/token_brainrot.pickle
-          echo "Secrets decoded successfully."
+          echo "${{ secrets.MOTIVATIONAL_SECRET }}" | base64 -d > client_motivational_quotes.json
 
-      - name: Upload BrainRot Short
-        run: python brainRot_automation/brainrot_upload.py
+      - name: Decode OAuth Token
+        run: |
+          echo "${{ secrets.MOTIVATIONAL_PICKLE }}" | base64 -d > token_motivational.pickle
 
-      - name: Commit Updated Index
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update brainrot upload index"
-          file_pattern: brainRot_automation/brainrot_last_index.txt
+      - name: Upload Motivational Video
+        run: |
+          python motivational_automation/local_upload_test_motivational.py
+
+      - name: Configure Git for pushing updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit updated index file
+        run: |
+          git add motivational_automation/current_index_motivational.txt
+          git commit -m "Update current index for next motivational upload" || echo "No changes to commit"
+
+      - name: Push updated index to repository
+        run: |
+          git push

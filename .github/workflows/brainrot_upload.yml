@@ -3,14 +3,14 @@ name: BrainRot YouTube Auto Upload
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 15 */2 * *'
+    - cron: '30 15 */2 * *' # every alternate day at 9 PM IST
 
 jobs:
   upload:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Python
@@ -22,13 +22,14 @@ jobs:
         run: |
           pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
 
-      - name: Decode Secrets
+      - name: Decode OAuth Secrets
         run: |
           mkdir -p brainRot_automation/Secrets
           echo "$CLIENT_SECRET_BRAINROT_B64" | base64 -d > brainRot_automation/Secrets/client_secret_brainrot.json
           echo "$TOKEN_BRAINROT_B64" | base64 -d > brainRot_automation/Secrets/token_brainrot.pickle
+          echo "Secrets decoded successfully."
 
-      - name: Upload Video
+      - name: Upload BrainRot Short
         run: python brainRot_automation/brainrot_upload.py
 
       - name: Commit Updated Index
