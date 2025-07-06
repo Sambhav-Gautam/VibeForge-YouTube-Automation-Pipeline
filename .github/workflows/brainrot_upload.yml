@@ -1,0 +1,38 @@
+name: BrainRot YouTube Auto Upload
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 15 */2 * *'
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Decode Secrets
+        run: |
+          mkdir -p brainRot_automation/Secrets
+          echo "$CLIENT_SECRET_BRAINROT_B64" | base64 -d > brainRot_automation/Secrets/client_secret_brainrot.json
+          echo "$TOKEN_BRAINROT_B64" | base64 -d > brainRot_automation/Secrets/token_brainrot.pickle
+
+      - name: Upload Video
+        run: python brainRot_automation/brainrot_upload.py
+
+      - name: Commit Updated Index
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update brainrot upload index"
+          file_pattern: brainRot_automation/brainrot_last_index.txt
