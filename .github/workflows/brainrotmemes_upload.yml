@@ -3,7 +3,7 @@ name: BrainRotMemes YouTube Auto Upload
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 15 */2 * *' # every alternate day at 9 PM IST
+    - cron: '30 13 */2 * *' # every alternate day at 7 PM IST
 
 jobs:
   upload:
