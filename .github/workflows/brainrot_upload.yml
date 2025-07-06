@@ -22,12 +22,11 @@ jobs:
         run: |
           pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
 
-      - name: Decode OAuth Secrets
+      - name: Decode Client Secret and Token
         run: |
-          mkdir -p brainRot_automation/Secrets
-          echo "$CLIENT_SECRET_BRAINROT_B64" | base64 -d > brainRot_automation/Secrets/client_secret_brainrot.json
-          echo "$TOKEN_BRAINROT_B64" | base64 -d > brainRot_automation/Secrets/token_brainrot.pickle
-          echo "Secrets decoded successfully."
+          echo "${{ secrets.CLIENT_SECRET_BRAINROT_B64 }}" | base64 -d > client_secret_brainrot.json
+          echo "${{ secrets.TOKEN_BRAINROT_B64 }}" | base64 -d > token_brainrot.pickle
+          echo "✅ Client secret and token decoded successfully."
 
       - name: Upload BrainRot Short
         run: python brainRot_automation/brainrot_upload.py
