@@ -1,0 +1,38 @@
+name: BrainRotMemes YouTube Auto Upload
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 15 */2 * *' # every alternate day at 9 PM IST
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Decode Client Secret and Token
+        run: |
+          echo "${{ secrets.CLIENT_SECRET_BRAINROTMEMES_B64 }}" | base64 -d > client_secret_brainrotmemes.json
+          echo "${{ secrets.TOKEN_BRAINROTMEMES_B64 }}" | base64 -d > token_brainrotmemes.pickle
+          echo "✅ Secrets decoded successfully."
+
+      - name: Upload BrainRotMemes Short
+        run: python brainRotMemes_automation/brainrotmemes_upload.py
+
+      - name: Commit Updated Index
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update brainrotmemes upload index"
+          file_pattern: brainRotMemes_automation/brainrotmemes_last_index.txt
