@@ -1,0 +1,38 @@
+name: AI Models YouTube Auto Upload
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 22 */2 * *' # every alternate day at 4 AM IST
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Decode Client Secret and Token
+        run: |
+          echo "${{ secrets.CLIENT_SECRET_AI_MODELS_B64 }}" | base64 -d > client_secret_ai_models.json
+          echo "${{ secrets.TOKEN_AI_MODELS_B64 }}" | base64 -d > token_ai_models.pickle
+          echo "✅ Secrets decoded successfully."
+
+      - name: Upload AI Model Video
+        run: python AI_Models/ai_models_upload.py
+
+      - name: Commit Updated Index
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update ai_models upload index"
+          file_pattern: AI_Models/ai_models_last_index.txt
