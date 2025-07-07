@@ -1,0 +1,38 @@
+name: GenZ YouTube Auto Upload
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 23 */2 * *' # every alternate day at 5 AM IST
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Decode Client Secret and Token
+        run: |
+          echo "${{ secrets.CLIENT_SECRET_GENZ_B64 }}" | base64 -d > client_secret_genz.json
+          echo "${{ secrets.TOKEN_GENZ_B64 }}" | base64 -d > token_genz.pickle
+          echo "✅ Secrets decoded successfully."
+
+      - name: Upload GenZ Short
+        run: python genz_automation/genz_upload.py
+
+      - name: Commit Updated Index
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update genz upload index"
+          file_pattern: genz_automation/genz_last_index.txt
