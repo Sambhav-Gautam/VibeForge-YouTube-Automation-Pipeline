@@ -1,0 +1,38 @@
+name: Illusions YouTube Auto Upload
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 1 */2 * *' # every alternate day at 7 AM IST
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Decode Client Secret and Token
+        run: |
+          echo "${{ secrets.CLIENT_SECRET_ILLUSIONS_B64 }}" | base64 -d > client_secret_Illusions.json
+          echo "${{ secrets.TOKEN_ILLUSIONS_B64 }}" | base64 -d > token_illusions.pickle
+          echo "✅ Secrets decoded successfully."
+
+      - name: Upload Illusions Short
+        run: python illusions_automation/illusions_upload.py
+
+      - name: Commit Updated Index
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update illusions upload index"
+          file_pattern: illusions_automation/illusions_last_index.txt
