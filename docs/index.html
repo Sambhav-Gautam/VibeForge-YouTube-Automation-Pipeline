@@ -3,18 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <title>YouTube Analytics Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: sans-serif; text-align: center; margin: 20px; }
-        table { margin: auto; border-collapse: collapse; width: 95%; max-width: 900px; }
-        th, td { border: 1px solid #ddd; padding: 8px; }
-        th { background: #f0f0f0; }
-        tr:nth-child(even) { background: #fafafa; }
-        tr:hover { background: #f1f1f1; }
+        :root {
+            --bg: #ffffff;
+            --text: #222222;
+            --card: #f9f9f9;
+            --border: #dddddd;
+            --highlight: #f0f0f0;
+        }
+
+        [data-theme="dark"] {
+            --bg: #121212;
+            --text: #e0e0e0;
+            --card: #1e1e1e;
+            --border: #333333;
+            --highlight: #2a2a2a;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: gray;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background: var(--highlight);
+            transform: scale(1.05);
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 95%;
+            max-width: 900px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 10px;
+            transition: background 0.3s;
+        }
+
+        th {
+            background: var(--highlight);
+        }
+
+        tr:nth-child(even) {
+            background: var(--highlight);
+        }
+
+        tr:hover {
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            table, th, td {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>📊 YouTube Analytics Dashboard</h1>
     <p>Auto-updating daily using GitHub Actions + Vercel 🚀</p>
+    <button id="themeToggle">🌙 Toggle Dark Mode</button>
     <table id="dashboard">
         <thead>
             <tr>
@@ -31,8 +113,20 @@
     </table>
 
     <script>
+        // Dark mode persistence
+        const themeToggle = document.getElementById('themeToggle');
+        const userTheme = localStorage.getItem('theme') || 'light';
+        if (userTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', current);
+            localStorage.setItem('theme', current);
+        });
+
+        // Load dashboard data
         async function loadDashboard() {
-            const url = "./dashboard_data.json?" + new Date().getTime(); // ✅ Correct for Vercel/static
+            const url = "./dashboard_data.json?" + new Date().getTime();
             try {
                 const res = await fetch(url);
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
