@@ -4,30 +4,14 @@
     <meta charset="UTF-8">
     <title>YouTube Analytics Dashboard</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        table {
-            border-collapse: collapse;
-            margin: auto;
-            width: 90%;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background: #f4f4f4;
-        }
+        body { font-family: sans-serif; text-align: center; }
+        table { margin: auto; border-collapse: collapse; width: 90%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background: #f0f0f0; }
     </style>
 </head>
 <body>
-    <h1>📊 YouTube Combined Analytics Dashboard</h1>
+    <h1>📊 YouTube Analytics Dashboard</h1>
     <table id="dashboard">
         <thead>
             <tr>
@@ -35,8 +19,8 @@
                 <th>Date</th>
                 <th>Views</th>
                 <th>Minutes Watched</th>
-                <th>Subscribers Gained</th>
-                <th>Subscribers Lost</th>
+                <th>Subs Gained</th>
+                <th>Subs Lost</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -44,27 +28,27 @@
     </table>
     <script>
         async function loadDashboard() {
-            const url = "https://github.com/Sambhav-Gautam/Automation_Pipeline.git/main/dashboard_data.json";
+            const url = "https://github.com/Sambhav-Gautam/Automation_Pipeline.git/main/dashboard_data.json?" + new Date().getTime();
             try {
-                const response = await fetch(url);
-                const data = await response.json();
+                const res = await fetch(url);
+                const data = await res.json();
                 const tbody = document.querySelector("#dashboard tbody");
-                data.forEach(item => {
+                data.forEach(row => {
                     const tr = document.createElement("tr");
                     tr.innerHTML = `
-                        <td>${item.channel}</td>
-                        <td>${item.date || "-"}</td>
-                        <td>${item.views ?? "-"}</td>
-                        <td>${item.minutesWatched ?? "-"}</td>
-                        <td>${item.subsGained ?? "-"}</td>
-                        <td>${item.subsLost ?? "-"}</td>
-                        <td>${item.error ? "❌ Error" : "✅ OK"}</td>
+                        <td>${row.channel}</td>
+                        <td>${row.date || "-"}</td>
+                        <td>${row.views ?? "-"}</td>
+                        <td>${row.minutesWatched ?? "-"}</td>
+                        <td>${row.subsGained ?? "-"}</td>
+                        <td>${row.subsLost ?? "-"}</td>
+                        <td>${row.error ? "❌ Error" : "✅ OK"}</td>
                     `;
                     tbody.appendChild(tr);
                 });
-            } catch (error) {
-                document.body.innerHTML = "<h2>Failed to load dashboard data.</h2>";
-                console.error(error);
+            } catch (err) {
+                document.body.innerHTML = "<h2>Error loading data</h2>";
+                console.error(err);
             }
         }
         loadDashboard();
