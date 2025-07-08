@@ -1,0 +1,48 @@
+name: Update YouTube Dashboard JSON
+
+on:
+  schedule:
+    - cron: '30 20 * * *'  # Runs daily at 2 AM IST
+  workflow_dispatch:
+
+jobs:
+  update_dashboard:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Decode Secrets
+        run: |
+          echo "${{ secrets.CLIENT_SECRET_AI_MODELS_B64 }}" | base64 -d > client_secret_ai_models.json
+          echo "${{ secrets.TOKEN_AI_MODELS_B64 }}" | base64 -d > token_ai_models.pickle
+          echo "${{ secrets.CLIENT_SECRET_BRAINROTMEMES_B64 }}" | base64 -d > client_secret_brainrotmemes.json
+          echo "${{ secrets.TOKEN_BRAINROTMEMES_B64 }}" | base64 -d > token_brainrotmemes.pickle
+          echo "${{ secrets.CLIENT_SECRET_BRAINROT_B64 }}" | base64 -d > client_secret_brainrot.json
+          echo "${{ secrets.TOKEN_BRAINROT_B64 }}" | base64 -d > token_brainrot.pickle
+          echo "${{ secrets.CLIENT_SECRET_GENZ_B64 }}" | base64 -d > client_secret_genz.json
+          echo "${{ secrets.TOKEN_GENZ_B64 }}" | base64 -d > token_genz.pickle
+          echo "${{ secrets.CLIENT_SECRET_ILLUSIONS_B64 }}" | base64 -d > client_secret_illusions.json
+          echo "${{ secrets.TOKEN_ILLUSIONS_B64 }}" | base64 -d > token_illusions.pickle
+          echo "${{ secrets.MOTIVATIONAL_SECRET }}" | base64 -d > client_motivational_quotes.json
+          echo "${{ secrets.MOTIVATIONAL_PICKLE }}" | base64 -d > token_motivational.pickle
+          echo "✅ Secrets decoded successfully."
+
+      - name: Fetch YouTube Analytics Data
+        run: python backend/fetch_analytics.py
+
+      - name: Commit and Push Updated Dashboard JSON
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update dashboard_data.json"
+          file_pattern: dashboard_data.json
