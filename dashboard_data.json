@@ -1,0 +1,26 @@
+[
+  {
+    "channel": "AI Models",
+    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+  },
+  {
+    "channel": "BrainRotMemes",
+    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+  },
+  {
+    "channel": "BrainRot",
+    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+  },
+  {
+    "channel": "GenZ",
+    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+  },
+  {
+    "channel": "Illusions",
+    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+  },
+  {
+    "channel": "Motivational",
+    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+  }
+]
