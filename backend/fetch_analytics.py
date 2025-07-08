@@ -4,12 +4,12 @@ from googleapiclient.discovery import build
 from datetime import datetime, timedelta
 
 channels = [
-    ("client_secret_ai_models.json", "token_ai_models.pickle", "AI Models"),
-    ("client_secret_brainrotmemes.json", "token_brainrotmemes.pickle", "BrainRotMemes"),
-    ("client_secret_brainrot.json", "token_brainrot.pickle", "BrainRot"),
-    ("client_secret_genz.json", "token_genz.pickle", "GenZ"),
-    ("client_secret_illusions.json", "token_illusions.pickle", "Illusions"),
-    ("client_motivational_quotes.json", "token_motivational.pickle", "Motivational")
+    ("client_secret_ai_models.json", "token_ai_models.json", "AI Models"),
+    ("client_secret_brainrotmemes.json", "token_brainrotmemes.json", "BrainRotMemes"),
+    ("client_secret_brainrot.json", "token_brainrot.json", "BrainRot"),
+    ("client_secret_genz.json", "token_genz.json", "GenZ"),
+    ("client_secret_illusions.json", "token_illusions.json", "Illusions"),
+    ("client_motivational_quotes.json", "token_motivational.json", "Motivational")
 ]
 
 def fetch_channel_analytics(client_secret_file, token_file, channel_name):
