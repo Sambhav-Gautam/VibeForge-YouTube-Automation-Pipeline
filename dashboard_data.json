@@ -1,26 +1,26 @@
 [
   {
     "channel": "AI Models",
-    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+    "error": "[Errno 2] No such file or directory: 'token_ai_models.pickle'"
   },
   {
     "channel": "BrainRotMemes",
-    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+    "error": "[Errno 2] No such file or directory: 'token_brainrotmemes.pickle'"
   },
   {
     "channel": "BrainRot",
-    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+    "error": "[Errno 2] No such file or directory: 'token_brainrot.pickle'"
   },
   {
     "channel": "GenZ",
-    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+    "error": "[Errno 2] No such file or directory: 'token_genz.pickle'"
   },
   {
     "channel": "Illusions",
-    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+    "error": "[Errno 2] No such file or directory: 'token_illusions.pickle'"
   },
   {
     "channel": "Motivational",
-    "error": "'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte"
+    "error": "[Errno 2] No such file or directory: 'token_motivational.pickle'"
   }
 ]
