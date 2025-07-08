@@ -13,44 +13,63 @@ channels = [
 ]
 
 def fetch_channel_analytics(client_secret_file, token_file, channel_name):
-    creds = Credentials.from_authorized_user_file(
-        token_file,
-        scopes=["https://www.googleapis.com/auth/yt-analytics.readonly"]
-    )
-    service = build("youtubeAnalytics", "v2", credentials=creds)
+    try:
+        creds = Credentials.from_authorized_user_file(
+            token_file,
+            scopes=["https://www.googleapis.com/auth/yt-analytics.readonly"]
+        )
+        service = build("youtubeAnalytics", "v2", credentials=creds)
 
-    yesterday = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%d")
+        # Fetch last 7 days data for safety
+        today = datetime.utcnow().date()
+        start_date = (today - timedelta(days=7)).strftime("%Y-%m-%d")
+        end_date = (today - timedelta(days=1)).strftime("%Y-%m-%d")
 
-    request = service.reports().query(
-        ids="channel==MINE",
-        startDate=yesterday,
-        endDate=yesterday,
-        metrics="views,estimatedMinutesWatched,subscribersGained,subscribersLost",
-        dimensions="day",
-        maxResults=1
-    )
-    response = request.execute()
-    if "rows" in response:
-        row = response["rows"][0]
+        request = service.reports().query(
+            ids="channel==MINE",
+            startDate=start_date,
+            endDate=end_date,
+            metrics="views,estimatedMinutesWatched,subscribersGained,subscribersLost",
+            dimensions="day",
+            maxResults=7
+        )
+        response = request.execute()
+
+        if "rows" not in response or len(response["rows"]) == 0:
+            return {"channel": channel_name, "error": "No data returned (no activity or private data)"}
+
+        # Sum data over the last 7 days for smoother display
+        total_views = 0
+        total_minutes = 0
+        total_subs_gained = 0
+        total_subs_lost = 0
+
+        for row in response["rows"]:
+            total_views += row[1]
+            total_minutes += row[2]
+            total_subs_gained += row[3]
+            total_subs_lost += row[4]
+
         return {
             "channel": channel_name,
-            "date": row[0],
-            "views": row[1],
-            "minutesWatched": row[2],
-            "subsGained": row[3],
-            "subsLost": row[4]
+            "start_date": start_date,
+            "end_date": end_date,
+            "views": total_views,
+            "minutesWatched": total_minutes,
+            "subsGained": total_subs_gained,
+            "subsLost": total_subs_lost
         }
-    else:
-        return {"channel": channel_name, "error": "No data returned"}
+
+    except Exception as e:
+        return {"channel": channel_name, "error": str(e)}
 
 if __name__ == "__main__":
     all_data = []
     for client_secret, token_file, channel_name in channels:
-        try:
-            data = fetch_channel_analytics(client_secret, token_file, channel_name)
-            all_data.append(data)
-        except Exception as e:
-            all_data.append({"channel": channel_name, "error": str(e)})
+        data = fetch_channel_analytics(client_secret, token_file, channel_name)
+        all_data.append(data)
+
     with open("dashboard_data.json", "w") as f:
         json.dump(all_data, f, indent=2)
+
     print("✅ Fetched and saved dashboard_data.json")
