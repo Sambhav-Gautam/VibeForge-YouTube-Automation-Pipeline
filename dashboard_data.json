@@ -1,26 +1,26 @@
 [
   {
     "channel": "AI Models",
-    "error": "[Errno 2] No such file or directory: 'token_ai_models.pickle'"
+    "error": "list index out of range"
   },
   {
     "channel": "BrainRotMemes",
-    "error": "[Errno 2] No such file or directory: 'token_brainrotmemes.pickle'"
+    "error": "list index out of range"
   },
   {
     "channel": "BrainRot",
-    "error": "[Errno 2] No such file or directory: 'token_brainrot.pickle'"
+    "error": "list index out of range"
   },
   {
     "channel": "GenZ",
-    "error": "[Errno 2] No such file or directory: 'token_genz.pickle'"
+    "error": "list index out of range"
   },
   {
     "channel": "Illusions",
-    "error": "[Errno 2] No such file or directory: 'token_illusions.pickle'"
+    "error": "list index out of range"
   },
   {
     "channel": "Motivational",
-    "error": "[Errno 2] No such file or directory: 'token_motivational.pickle'"
+    "error": "list index out of range"
   }
 ]
