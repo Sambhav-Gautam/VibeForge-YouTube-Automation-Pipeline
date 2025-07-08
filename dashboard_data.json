@@ -1,26 +1,31 @@
 [
   {
     "channel": "AI Models",
-    "error": "list index out of range"
+    "error": "No data returned (no activity or private data)"
   },
   {
     "channel": "BrainRotMemes",
-    "error": "list index out of range"
+    "error": "No data returned (no activity or private data)"
   },
   {
     "channel": "BrainRot",
-    "error": "list index out of range"
+    "error": "No data returned (no activity or private data)"
   },
   {
     "channel": "GenZ",
-    "error": "list index out of range"
+    "error": "No data returned (no activity or private data)"
   },
   {
     "channel": "Illusions",
-    "error": "list index out of range"
+    "error": "No data returned (no activity or private data)"
   },
   {
     "channel": "Motivational",
-    "error": "list index out of range"
+    "start_date": "2025-07-01",
+    "end_date": "2025-07-07",
+    "views": 389,
+    "minutesWatched": 10,
+    "subsGained": 0,
+    "subsLost": 0
   }
 ]
