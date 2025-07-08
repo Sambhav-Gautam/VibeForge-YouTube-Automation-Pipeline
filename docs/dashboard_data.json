@@ -1,0 +1,31 @@
+[
+  {
+    "channel": "AI Models",
+    "error": "No data returned (no activity or private data)"
+  },
+  {
+    "channel": "BrainRotMemes",
+    "error": "No data returned (no activity or private data)"
+  },
+  {
+    "channel": "BrainRot",
+    "error": "No data returned (no activity or private data)"
+  },
+  {
+    "channel": "GenZ",
+    "error": "No data returned (no activity or private data)"
+  },
+  {
+    "channel": "Illusions",
+    "error": "No data returned (no activity or private data)"
+  },
+  {
+    "channel": "Motivational",
+    "start_date": "2025-07-01",
+    "end_date": "2025-07-07",
+    "views": 389,
+    "minutesWatched": 10,
+    "subsGained": 0,
+    "subsLost": 0
+  }
+]
