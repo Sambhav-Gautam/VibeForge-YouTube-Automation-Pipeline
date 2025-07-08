@@ -25,18 +25,26 @@ jobs:
       - name: Decode Secrets
         run: |
           echo "${{ secrets.CLIENT_SECRET_AI_MODELS_B64 }}" | base64 -d > client_secret_ai_models.json
-          echo "${{ secrets.TOKEN_AI_MODELS_B64 }}" | base64 -d > token_ai_models.pickle
+          echo "${{ secrets.ANALYTICS_TOKEN_AI_MODELS_B64 }}" | base64 -d > token_ai_models.json
+          
           echo "${{ secrets.CLIENT_SECRET_BRAINROTMEMES_B64 }}" | base64 -d > client_secret_brainrotmemes.json
-          echo "${{ secrets.TOKEN_BRAINROTMEMES_B64 }}" | base64 -d > token_brainrotmemes.pickle
+          echo "${{ secrets.ANALYTICS_TOKEN_BRAINROTMEMES_B64 }}" | base64 -d > token_brainrotmemes.json
+
           echo "${{ secrets.CLIENT_SECRET_BRAINROT_B64 }}" | base64 -d > client_secret_brainrot.json
-          echo "${{ secrets.TOKEN_BRAINROT_B64 }}" | base64 -d > token_brainrot.pickle
+          echo "${{ secrets.ANALYTICS_TOKEN_BRAINROT_B64 }}" | base64 -d > token_brainrot.json
+
           echo "${{ secrets.CLIENT_SECRET_GENZ_B64 }}" | base64 -d > client_secret_genz.json
-          echo "${{ secrets.TOKEN_GENZ_B64 }}" | base64 -d > token_genz.pickle
+          echo "${{ secrets.ANALYTICS_TOKEN_GENZ_B64 }}" | base64 -d > token_genz.json
+
           echo "${{ secrets.CLIENT_SECRET_ILLUSIONS_B64 }}" | base64 -d > client_secret_illusions.json
-          echo "${{ secrets.TOKEN_ILLUSIONS_B64 }}" | base64 -d > token_illusions.pickle
+          echo "${{ secrets.ANALYTICS_TOKEN_ILLUSIONS_B64 }}" | base64 -d > token_illusions.json
+
           echo "${{ secrets.MOTIVATIONAL_SECRET }}" | base64 -d > client_motivational_quotes.json
-          echo "${{ secrets.MOTIVATIONAL_PICKLE }}" | base64 -d > token_motivational.pickle
+          echo "${{ secrets.ANALYTICS_TOKEN_MOTIVATIONAL_B64 }}" | base64 -d > token_motivational.json
+
           echo "✅ Secrets decoded successfully."
+
+
 
       - name: Fetch YouTube Analytics Data
         run: python backend/fetch_analytics.py
