@@ -5,11 +5,21 @@
   },
   {
     "channel": "BrainRotMemes",
-    "error": "No data returned (no activity or private data)"
+    "start_date": "2025-07-01",
+    "end_date": "2025-07-07",
+    "views": 8,
+    "minutesWatched": 0,
+    "subsGained": 0,
+    "subsLost": 0
   },
   {
     "channel": "BrainRot",
-    "error": "No data returned (no activity or private data)"
+    "start_date": "2025-07-01",
+    "end_date": "2025-07-07",
+    "views": 10,
+    "minutesWatched": 0,
+    "subsGained": 0,
+    "subsLost": 0
   },
   {
     "channel": "GenZ",
@@ -23,8 +33,8 @@
     "channel": "Motivational",
     "start_date": "2025-07-01",
     "end_date": "2025-07-07",
-    "views": 389,
-    "minutesWatched": 10,
+    "views": 483,
+    "minutesWatched": 13,
     "subsGained": 0,
     "subsLost": 0
   }
