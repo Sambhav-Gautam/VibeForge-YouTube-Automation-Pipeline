@@ -1,30 +1,55 @@
 [
   {
     "channel": "AI Models",
-    "error": "No data returned (no activity or private data)"
+    "start_date": "2025-07-03",
+    "end_date": "2025-07-09",
+    "views": 9,
+    "minutesWatched": 0,
+    "subsGained": 0,
+    "subsLost": 0
   },
   {
     "channel": "BrainRotMemes",
-    "error": "No data returned (no activity or private data)"
+    "start_date": "2025-07-03",
+    "end_date": "2025-07-09",
+    "views": 9,
+    "minutesWatched": 0,
+    "subsGained": 0,
+    "subsLost": 0
   },
   {
     "channel": "BrainRot",
-    "error": "No data returned (no activity or private data)"
+    "start_date": "2025-07-03",
+    "end_date": "2025-07-09",
+    "views": 13,
+    "minutesWatched": 0,
+    "subsGained": 0,
+    "subsLost": 0
   },
   {
     "channel": "GenZ",
-    "error": "No data returned (no activity or private data)"
+    "start_date": "2025-07-03",
+    "end_date": "2025-07-09",
+    "views": 3,
+    "minutesWatched": 0,
+    "subsGained": 0,
+    "subsLost": 0
   },
   {
     "channel": "Illusions",
-    "error": "No data returned (no activity or private data)"
+    "start_date": "2025-07-03",
+    "end_date": "2025-07-09",
+    "views": 2,
+    "minutesWatched": 0,
+    "subsGained": 0,
+    "subsLost": 0
   },
   {
     "channel": "Motivational",
-    "start_date": "2025-07-01",
-    "end_date": "2025-07-07",
-    "views": 389,
-    "minutesWatched": 10,
+    "start_date": "2025-07-03",
+    "end_date": "2025-07-09",
+    "views": 482,
+    "minutesWatched": 13,
     "subsGained": 0,
     "subsLost": 0
   }
