@@ -4,15 +4,8 @@
 
 **Welcome to the VibeForge Pipeline**—the ultimate tool for creators to **automate short-form video content creation** and skyrocket their YouTube, Instagram, and TikTok presence! Generate stunning Gemini images, convert them into engaging 5-second Shorts with music, schedule uploads, and monitor performance—all with minimal effort. 🚀 Save hours and dominate the short-form content game!
 
-## 🎨 Logo Concept
+<img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/85101668-37dd-48d4-b3d5-3411d0041f8f" />
 
-```
-   ____ ___ _          
-  / __ `__ | |         
- / / / / / | |__   ____
-/_/ /_/ /_/|____| /___/
-~ Powering Viral Content Creation ~
-```
 
 ## 📖 Table of Contents
 
