@@ -1,11 +1,13 @@
 # 🚀 VibeForge Pipeline: YouTube Automation & Gemini Bulk Downloader
 
+⚠️ **Warning:**
+All videos present in this GitHub repository are **strictly for personal testing and demonstration purposes only**. **Re-uploading, publishing, or distributing these videos on YouTube, Instagram, TikTok, or any public platform is strictly prohibited.** Unauthorized use may lead to takedown actions.
+
 ![VibeForge Pipeline](https://img.shields.io/badge/VibeForge%20Pipeline-Active-brightgreen) ![Python](https://img.shields.io/badge/Python-3.11-blue) ![Node.js](https://img.shields.io/badge/Node.js-18-green) ![Gemini](https://img.shields.io/badge/Gemini-Bulk%20Image%20Generation-yellow) ![YouTube API](https://img.shields.io/badge/YouTube%20API-Automated%20Uploads-red) ![Vercel](https://img.shields.io/badge/Vercel-Hosted%20Dashboard-orange) ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Workflows-blue)
 
 **Welcome to the VibeForge Pipeline**—the ultimate tool for creators to **automate short-form video content creation** and skyrocket their YouTube, Instagram, and TikTok presence! Generate stunning Gemini images, convert them into engaging 5-second Shorts with music, schedule uploads, and monitor performance—all with minimal effort. 🚀 Save hours and dominate the short-form content game!
 
 <img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/85101668-37dd-48d4-b3d5-3411d0041f8f" />
-
 
 ## 📖 Table of Contents
 
