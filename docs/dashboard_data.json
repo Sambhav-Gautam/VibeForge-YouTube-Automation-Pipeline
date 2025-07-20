@@ -1,55 +1,55 @@
 [
   {
     "channel": "AI Models",
-    "start_date": "2025-07-12",
-    "end_date": "2025-07-18",
-    "views": 3182,
-    "minutesWatched": 217,
-    "subsGained": 3,
+    "start_date": "2025-07-13",
+    "end_date": "2025-07-19",
+    "views": 3247,
+    "minutesWatched": 219,
+    "subsGained": 4,
     "subsLost": 1
   },
   {
     "channel": "BrainRotMemes",
-    "start_date": "2025-07-12",
-    "end_date": "2025-07-18",
-    "views": 6,
-    "minutesWatched": 0,
+    "start_date": "2025-07-13",
+    "end_date": "2025-07-19",
+    "views": 74,
+    "minutesWatched": 1,
     "subsGained": 0,
     "subsLost": 0
   },
   {
     "channel": "BrainRot",
-    "start_date": "2025-07-12",
-    "end_date": "2025-07-18",
-    "views": 1,
+    "start_date": "2025-07-13",
+    "end_date": "2025-07-19",
+    "views": 2,
     "minutesWatched": 0,
     "subsGained": 0,
     "subsLost": 0
   },
   {
     "channel": "GenZ",
-    "start_date": "2025-07-12",
-    "end_date": "2025-07-18",
-    "views": 17,
+    "start_date": "2025-07-13",
+    "end_date": "2025-07-19",
+    "views": 31,
     "minutesWatched": 0,
     "subsGained": 0,
     "subsLost": 0
   },
   {
     "channel": "Illusions",
-    "start_date": "2025-07-12",
-    "end_date": "2025-07-18",
-    "views": 106,
-    "minutesWatched": 5,
+    "start_date": "2025-07-13",
+    "end_date": "2025-07-19",
+    "views": 457,
+    "minutesWatched": 19,
     "subsGained": 0,
     "subsLost": 0
   },
   {
     "channel": "Motivational",
-    "start_date": "2025-07-12",
-    "end_date": "2025-07-18",
-    "views": 850,
-    "minutesWatched": 22,
+    "start_date": "2025-07-13",
+    "end_date": "2025-07-19",
+    "views": 899,
+    "minutesWatched": 23,
     "subsGained": 0,
     "subsLost": 0
   }
