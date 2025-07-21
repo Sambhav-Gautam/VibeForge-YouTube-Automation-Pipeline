@@ -255,10 +255,6 @@ Join the VibeForge community! To contribute:
 4. Push: `git push origin feature/your-feature`
 5. Open a Pull Request.
 
-## 📜 License
-
-MIT License. See [LICENSE](LICENSE) for details.
-
 ## ✨ Acknowledgments
 
 - Powered by Gemini, YouTube API, and the open-source community.
