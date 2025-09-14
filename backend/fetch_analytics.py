@@ -69,7 +69,7 @@ if __name__ == "__main__":
         data = fetch_channel_analytics(client_secret, token_file, channel_name)
         all_data.append(data)
 
-    with open("dashboard_data.json", "w") as f:
+    with open("docs/dashboard_data.json", "w") as f:
         json.dump(all_data, f, indent=2)
 
     print("✅ Fetched and saved dashboard_data.json")
