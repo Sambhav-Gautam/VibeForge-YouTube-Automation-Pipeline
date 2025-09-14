@@ -1,0 +1,47 @@
+name: AI Models Long-Form Auto Upload
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 23 * * *' # Runs at 5:00 AM IST (23:30 UTC daily)
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (Gemini API client)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          npm install @google/genai
+          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client ffmpeg-python
+
+      - name: Decode Client Secret and Token
+        run: |
+          echo "${{ secrets.CLIENT_SECRET_AI_MODELS_B64 }}" | base64 -d > client_secret_ai_models.json
+          echo "${{ secrets.TOKEN_AI_MODELS_B64 }}" | base64 -d > token_ai_models.pickle
+          echo "✅ Secrets decoded successfully."
+
+      - name: Generate Video, Title, and SEO Data with Gemini
+        run: node AI_Models/long_form/gemini_generate.js
+
+      - name: Upload Long-Form Video
+        run: python AI_Models/long_form/upload_longform.py
+
+      - name: Commit Updated Index
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update longform upload index"
+          file_pattern: AI_Models/long_form/longform_last_index.txt
