@@ -2,8 +2,12 @@ name: AI Models Long-Form Auto Upload
 
 on:
   workflow_dispatch:
+    inputs:
+      custom_prompt:
+        description: 'Custom topic for Gemini (leave blank for auto)'
+        required: false
   schedule:
-    - cron: '30 23 * * *' # Runs at 5:00 AM IST (23:30 UTC daily)
+    - cron: '30 23 * * *'  # Daily 5:00 AM IST
 
 jobs:
   upload:
@@ -32,16 +36,20 @@ jobs:
         run: |
           echo "${{ secrets.CLIENT_SECRET_AI_MODELS_B64 }}" | base64 -d > client_secret_ai_models.json
           echo "${{ secrets.TOKEN_AI_MODELS_B64 }}" | base64 -d > token_ai_models.pickle
-          echo "✅ Secrets decoded successfully."
 
       - name: Generate Video, Title, and SEO Data with Gemini
-        run: node AI_Models/long_form/gemini_generate.js
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CUSTOM_PROMPT: ${{ github.event.inputs.custom_prompt }}
+        run: |
+          node "${{ github.workspace }}/AI_Models/gemini_generate.js"
 
       - name: Upload Long-Form Video
-        run: python AI_Models/long_form/upload_longform.py
+        run: |
+          python "${{ github.workspace }}/AI_Models/upload_longform.py"
 
       - name: Commit Updated Index
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update longform upload index"
-          file_pattern: AI_Models/long_form/longform_last_index.txt
+          file_pattern: AI_Models/ai_models_last_index_new.txt
