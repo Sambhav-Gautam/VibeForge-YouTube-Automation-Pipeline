@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1276" viewBox="0 0 1280 1276" role="img" aria-label="Step 4: Automated Uploads">
+
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#064e3b"/><stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#6ee7b7"/>
+      </linearGradient>
+      <radialGradient id="blob1" cx="20%" cy="10%" r="40%">
+        <stop offset="0%" stop-color="#6ee7b7" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="blob2" cx="85%" cy="25%" r="45%">
+        <stop offset="0%" stop-color="#34d399" stop-opacity="0.28"/>
+        <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="rgba(0,0,0,0.4)"/>
+      </filter>
+      <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#bg)"/>
+    <!-- misty blobs -->
+    <circle cx="230.39999999999998" cy="229.67999999999998" r="448.0" fill="url(#blob1)"/>
+    <circle cx="1049.6" cy="357.28000000000003" r="512.0" fill="url(#blob2)"/>
+    <!-- frosted panel -->
+    <g filter="url(#shadow)">
+      <rect x="128" y="80" width="1024" height="1136" rx="28" ry="28" fill="rgba(255,255,255,0.06)"/>
+    </g>
+    <!-- Title -->
+    <text x="640.0" y="65" text-anchor="middle" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="54" font-weight="900" fill="url(#accent)">Step 4: Automated Uploads</text>
+    <rect x="128" y="92" width="1024" height="6" rx="3" fill="url(#accent)"/>
+    
+<text x="150" y="220" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">Description:</tspan><tspan dx="0">*</tspan></text>
+<text x="150" y="266" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">GitHub Actions schedules uploads for six channels and a general daily upload.</tspan></text>
+<text x="150" y="312" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">Workflow Schedules (IST):</tspan><tspan dx="0">*</tspan></text>
+<text x="150" y="350" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">AI Models</tspan><tspan dx="0">: Every alternate day, 4 AM (`30 22 </tspan><tspan dx="0" font-style="italic" opacity="0.92">/2 </tspan><tspan dx="0"> *`)</tspan></text>
+<text x="150" y="388" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">BrainRot</tspan><tspan dx="0">: Every alternate day, 9 PM (`30 15 </tspan><tspan dx="0" font-style="italic" opacity="0.92">/2 </tspan><tspan dx="0"> *`)</tspan></text>
+<text x="150" y="426" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">BrainRotMemes</tspan><tspan dx="0">: Every alternate day, 7 PM (`30 13 </tspan><tspan dx="0" font-style="italic" opacity="0.92">/2 </tspan><tspan dx="0"> *`)</tspan></text>
+<text x="150" y="464" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">GenZ</tspan><tspan dx="0">: Every alternate day, 5 AM (`30 23 </tspan><tspan dx="0" font-style="italic" opacity="0.92">/2 </tspan><tspan dx="0"> *`)</tspan></text>
+<text x="150" y="502" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">Illusions</tspan><tspan dx="0">: Every alternate day, 7 AM (`30 1 </tspan><tspan dx="0" font-style="italic" opacity="0.92">/2 </tspan><tspan dx="0"> *`)</tspan></text>
+<text x="150" y="540" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">Motivational</tspan><tspan dx="0">: Daily, 1 AM (`30 19 </tspan><tspan dx="0" font-style="italic" opacity="0.92"> </tspan><tspan dx="0"> *`)</tspan></text>
+<text x="150" y="578" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">General Upload</tspan><tspan dx="0">: Daily, 11 PM (`30 17 </tspan><tspan dx="0" font-style="italic" opacity="0.92"> </tspan><tspan dx="0"> *`)</tspan></text>
+<text x="150" y="624" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">Setup:</tspan><tspan dx="0">*</tspan></text>
+<text x="150" y="670" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">1) Add base64-encoded secrets to GitHub:</tspan></text>
+<text x="150" y="716" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• `CLIENT_SECRET_&lt;CHANNEL&gt;_B64`, `TOKEN_&lt;CHANNEL&gt;_B64` for each channel.</tspan></text>
+<text x="150" y="754" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• `MOTIVATIONAL_SECRET`, `MOTIVATIONAL_PICKLE`, `YT_REFRESH_TOKEN_JSON`</tspan></text>
+<text x="150" y="800" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">2) Ensure upload scripts (e.g., `ai_models_upload.py`) are in channel folders.</tspan></text>
+<rect x="128" y="1180" width="1024" height="8" rx="4" fill="url(#accent)"/>
+</svg>

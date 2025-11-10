@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1428" viewBox="0 0 1280 1428" role="img" aria-label="Step 1: Bulk Content Generation">
+
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#064e3b"/><stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#6ee7b7"/>
+      </linearGradient>
+      <radialGradient id="blob1" cx="20%" cy="10%" r="40%">
+        <stop offset="0%" stop-color="#6ee7b7" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="blob2" cx="85%" cy="25%" r="45%">
+        <stop offset="0%" stop-color="#34d399" stop-opacity="0.28"/>
+        <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="rgba(0,0,0,0.4)"/>
+      </filter>
+      <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#bg)"/>
+    <!-- misty blobs -->
+    <circle cx="230.39999999999998" cy="257.03999999999996" r="448.0" fill="url(#blob1)"/>
+    <circle cx="1049.6" cy="399.84000000000003" r="512.0" fill="url(#blob2)"/>
+    <!-- frosted panel -->
+    <g filter="url(#shadow)">
+      <rect x="128" y="80" width="1024" height="1288" rx="28" ry="28" fill="rgba(255,255,255,0.06)"/>
+    </g>
+    <!-- Title -->
+    <text x="640.0" y="65" text-anchor="middle" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="54" font-weight="900" fill="url(#accent)">Step 1: Bulk Content Generation</text>
+    <rect x="128" y="92" width="1024" height="6" rx="3" fill="url(#accent)"/>
+    
+<text x="150" y="220" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">Description:</tspan><tspan dx="0">*</tspan></text>
+<text x="150" y="266" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">Generate </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">90–100</tspan><tspan dx="0"> vertical </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">9:16</tspan><tspan dx="0"> images/hour with text overlays using </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">Gemini</tspan><tspan dx="0"> and</tspan></text>
+<text x="150" y="304" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">JavaScript automation.</tspan></text>
+<text x="150" y="350" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">Usage:</tspan><tspan dx="0">*</tspan></text>
+<text x="150" y="396" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">1) Navigate to `ChatBotAutomation/gemini_automation`.</tspan></text>
+<text x="150" y="434" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">2) Update `script.js`:</tspan></text>
+<g filter="url(#softGlow)">
+<rect x="150" y="474" width="980" height="316" rx="14" ry="14" fill="rgba(3, 63, 48, 0.72)" />
+</g>
+<text x="166" y="500" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="24" fill="rgb(210, 255, 235)">
+<tspan x="166" dy="0"></tspan>
+<tspan x="166" dy="32">let generationIndex = 0, delay = 30000, totalGenerations = 400;</tspan>
+<tspan x="166" dy="32">function getPrompt() {</tspan>
+<tspan x="166" dy="32">  return `Create a 9:16 cinematic image with hyper-vivid style...</tspan>
+<tspan x="166" dy="32">  Include bold yellow text: "YOUR TEXT" ...`;</tspan>
+<tspan x="166" dy="32">}</tspan>
+<tspan x="166" dy="32">function submitPrompt() { /* Automation logic */ }</tspan>
+<tspan x="166" dy="32">submit-analytics();</tspan>
+</text>
+<text x="150" y="812" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">3) Run in a browser console on the Gemini interface.</tspan></text>
+<text x="150" y="850" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">4) Use multiple personal Gmail accounts to scale generation.</tspan></text>
+<text x="150" y="896" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• Tip: Personal Gmail accounts ensure the “Share” button appears.*</tspan></text>
+<rect x="128" y="1332" width="1024" height="8" rx="4" fill="url(#accent)"/>
+</svg>

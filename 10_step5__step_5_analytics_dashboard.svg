@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1580" viewBox="0 0 1280 1580" role="img" aria-label="Step 5: Analytics Dashboard">
+
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#064e3b"/><stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#6ee7b7"/>
+      </linearGradient>
+      <radialGradient id="blob1" cx="20%" cy="10%" r="40%">
+        <stop offset="0%" stop-color="#6ee7b7" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="blob2" cx="85%" cy="25%" r="45%">
+        <stop offset="0%" stop-color="#34d399" stop-opacity="0.28"/>
+        <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="rgba(0,0,0,0.4)"/>
+      </filter>
+      <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#bg)"/>
+    <!-- misty blobs -->
+    <circle cx="230.39999999999998" cy="284.4" r="448.0" fill="url(#blob1)"/>
+    <circle cx="1049.6" cy="442.40000000000003" r="512.0" fill="url(#blob2)"/>
+    <!-- frosted panel -->
+    <g filter="url(#shadow)">
+      <rect x="128" y="80" width="1024" height="1440" rx="28" ry="28" fill="rgba(255,255,255,0.06)"/>
+    </g>
+    <!-- Title -->
+    <text x="640.0" y="65" text-anchor="middle" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="54" font-weight="900" fill="url(#accent)">Step 5: Analytics Dashboard</text>
+    <rect x="128" y="92" width="1024" height="6" rx="3" fill="url(#accent)"/>
+    
+<text x="150" y="220" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">Description:</tspan><tspan dx="0">*</tspan></text>
+<text x="150" y="266" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">Monitor all channels on a Vercel-hosted dashboard.</tspan></text>
+<text x="150" y="312" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">Features:</tspan><tspan dx="0">*</tspan></text>
+<text x="150" y="350" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">Metrics</tspan><tspan dx="0">: Views, minutes watched, subscribers gained/lost (7-day aggregates).</tspan></text>
+<text x="150" y="388" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">UI</tspan><tspan dx="0">: Responsive table with light/dark mode toggle.</tspan></text>
+<text x="150" y="426" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">Update Schedule</tspan><tspan dx="0">: Daily at 2 AM IST (`30 20 </tspan><tspan dx="0" font-style="italic" opacity="0.92"> </tspan><tspan dx="0"> *`).</tspan></text>
+<text x="150" y="464" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">Data</tspan><tspan dx="0">: `dashboard_data.json` updated via `backend/fetch_analytics.py`.</tspan></text>
+<text x="150" y="510" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">Dashboard Snippet:</tspan><tspan dx="0">*</tspan></text>
+<g filter="url(#softGlow)">
+<rect x="150" y="550" width="980" height="540" rx="14" ry="14" fill="rgba(3, 63, 48, 0.72)" />
+</g>
+<text x="166" y="576" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="24" fill="rgb(210, 255, 235)">
+<tspan x="166" dy="0"></tspan>
+<tspan x="166" dy="32">&lt;table id="dashboard"&gt;</tspan>
+<tspan x="166" dy="32">    &lt;thead&gt;</tspan>
+<tspan x="166" dy="32">        &lt;tr&gt;</tspan>
+<tspan x="166" dy="32">            &lt;th&gt;Channel&lt;/th&gt;</tspan>
+<tspan x="166" dy="32">            &lt;th&gt;Date&lt;/th&gt;</tspan>
+<tspan x="166" dy="32">            &lt;th&gt;Views&lt;/th&gt;</tspan>
+<tspan x="166" dy="32">            &lt;th&gt;Minutes Watched&lt;/th&gt;</tspan>
+<tspan x="166" dy="32">            &lt;th&gt;Subs Gained&lt;/th&gt;</tspan>
+<tspan x="166" dy="32">            &lt;th&gt;Subs Lost&lt;/th&gt;</tspan>
+<tspan x="166" dy="32">            &lt;th&gt;Status&lt;/th&gt;</tspan>
+<tspan x="166" dy="32">        &lt;/tr&gt;</tspan>
+<tspan x="166" dy="32">    &lt;/thead&gt;</tspan>
+<tspan x="166" dy="32">    &lt;tbody&gt;&lt;/tbody&gt;</tspan>
+<tspan x="166" dy="32">&lt;/table&gt;</tspan>
+</text>
+<rect x="128" y="1484" width="1024" height="8" rx="4" fill="url(#accent)"/>
+</svg>
