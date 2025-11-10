@@ -1,52 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1124" viewBox="0 0 1280 1124" role="img" aria-label="VibeForge Pipeline: YouTube Automation &amp; Gemini Bulk Downloader">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1030" viewBox="0 0 1280 1030" role="img" aria-label="VibeForge Pipeline: YouTube Automation &amp; Gemini Bulk Downloader">
 
     <defs>
       <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#064e3b"/><stop offset="100%" stop-color="#10b981"/>
+        <stop offset="0%" stop-color="#0b1221"/><stop offset="100%" stop-color="#0e2b4a"/>
       </linearGradient>
-      <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#6ee7b7"/>
+      <linearGradient id="accentH" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#22d3ee"/><stop offset="50%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#5eead4"/>
       </linearGradient>
-      <radialGradient id="blob1" cx="20%" cy="10%" r="40%">
-        <stop offset="0%" stop-color="#6ee7b7" stop-opacity="0.35"/>
-        <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0"/>
+      <radialGradient id="orb1" cx="18%" cy="16%" r="40%">
+        <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.20"/><stop offset="100%" stop-color="#7dd3fc" stop-opacity="0"/>
       </radialGradient>
-      <radialGradient id="blob2" cx="85%" cy="25%" r="45%">
-        <stop offset="0%" stop-color="#34d399" stop-opacity="0.28"/>
-        <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+      <radialGradient id="orb2" cx="84%" cy="28%" r="40%">
+        <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.18"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
       </radialGradient>
-      <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="rgba(0,0,0,0.4)"/>
-      </filter>
-      <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="8" result="blur"/>
-        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
     </defs>
     <rect width="100%" height="100%" fill="url(#bg)"/>
-    <!-- misty blobs -->
-    <circle cx="230.39999999999998" cy="202.32" r="448.0" fill="url(#blob1)"/>
-    <circle cx="1049.6" cy="314.72" r="512.0" fill="url(#blob2)"/>
-    <!-- frosted panel -->
-    <g filter="url(#shadow)">
-      <rect x="128" y="80" width="1024" height="984" rx="28" ry="28" fill="rgba(255,255,255,0.06)"/>
-    </g>
-    <!-- Title -->
-    <text x="640.0" y="65" text-anchor="middle" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="54" font-weight="900" fill="url(#accent)">VibeForge Pipeline: YouTube Automation &amp; Gemini Bulk Downloader</text>
-    <rect x="128" y="92" width="1024" height="6" rx="3" fill="url(#accent)"/>
+    <circle cx="256.0" cy="185.4" r="460.79999999999995" fill="url(#orb1)"/>
+    <circle cx="1024.0" cy="288.40000000000003" r="460.79999999999995" fill="url(#orb2)"/>
+    <rect x="184" y="50" width="912" height="920" rx="22" ry="22" fill="rgba(255,255,255,0.05)"/>
+    <text x="640.0" y="40" text-anchor="middle" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="54" font-weight="900" fill="url(#accentH)">VibeForge Pipeline: YouTube Automation &amp; Gemini Bulk Downloader</text>
+    <rect x="184" y="74" width="912" height="5" rx="3" fill="url(#accentH)"/>
     
-<text x="150" y="220" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">⚠️ Warning:</tspan><tspan dx="0">*</tspan></text>
-<text x="150" y="266" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">All videos present in this GitHub repository are </tspan><tspan dx="0">strictly for personal testing and</tspan></text>
-<text x="150" y="304" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">demonstration purposes only</tspan><tspan dx="0" font-weight="800" fill="url(#accent)">. </tspan><tspan dx="0">Re-uploading, publishing, or distributing</tspan><tspan dx="0"> these videos on</tspan></text>
-<text x="150" y="342" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">YouTube, Instagram, TikTok, or any public platform is </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">strictly prohibited</tspan><tspan dx="0">. Unauthorized use</tspan></text>
-<text x="150" y="380" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">may lead to takedown actions.</tspan></text>
-<text x="150" y="426" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• </tspan><tspan dx="0" font-style="italic" opacity="0.92">Badges:</tspan><tspan dx="0">*</tspan></text>
-<text x="150" y="472" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">VibeForge Pipeline — Active | Python 3.11 | Node.js 18 | Gemini — Bulk Image Generation |</tspan></text>
-<text x="150" y="510" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">YouTube API — Automated Uploads | Vercel — Hosted Dashboard | GitHub Actions — Workflows</tspan></text>
-<text x="150" y="556" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">• Welcome to the VibeForge Pipeline</tspan><tspan dx="0" font-style="italic" opacity="0.92">—the ultimate tool for creators to </tspan><tspan dx="0">*automate short-form</tspan></text>
-<text x="150" y="594" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">video content creation</tspan><tspan dx="0"> and skyrocket their YouTube, Instagram, and TikTok presence!</tspan></text>
-<text x="150" y="632" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">Generate stunning Gemini images, convert them into engaging 5-second Shorts with music,</tspan></text>
-<text x="150" y="670" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">schedule uploads, and monitor performance—all with minimal effort. </tspan><tspan dx="0" font-weight="800" fill="url(#accent)">Save hours</tspan><tspan dx="0"> and</tspan></text>
-<text x="150" y="708" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.9)"><tspan dx="0">dominate the short-form content game!</tspan></text>
-<rect x="128" y="1028" width="1024" height="8" rx="4" fill="url(#accent)"/>
+<text x="200" y="200" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="900" fill="url(#accentH)">•</tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)"> </tspan><tspan font-style="italic" font-weight="700" fill="rgba(255,255,255,0.98)">⚠️ Warning:</tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)">*</tspan></text>
+<text x="200" y="238" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">All videos present in this GitHub repository are </tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)">strictly for personal</tspan></text>
+<text x="200" y="268" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">testing and demonstration purposes only</tspan><tspan font-weight="900" fill="url(#accentH)">. </tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)">Re-uploading, publishing,</tspan></text>
+<text x="200" y="298" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">or distributing</tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)"> these videos on YouTube, Instagram, TikTok, or any</tspan></text>
+<text x="200" y="328" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">public platform is </tspan><tspan font-weight="900" fill="url(#accentH)">strictly prohibited</tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)">. Unauthorized use may lead to</tspan></text>
+<text x="200" y="358" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">takedown actions.</tspan></text>
+<text x="200" y="396" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="900" fill="url(#accentH)">•</tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)"> </tspan><tspan font-style="italic" font-weight="700" fill="rgba(255,255,255,0.98)">Badges:</tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)">*</tspan></text>
+<text x="200" y="434" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">VibeForge Pipeline — Active | Python 3.11 | Node.js 18 | Gemini — Bulk</tspan></text>
+<text x="200" y="464" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">Image Generation | YouTube API — Automated Uploads | Vercel — Hosted</tspan></text>
+<text x="200" y="494" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">Dashboard | GitHub Actions — Workflows</tspan></text>
+<text x="200" y="532" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="900" fill="url(#accentH)">•</tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)"> Welcome to the VibeForge Pipeline*—the ultimate tool for creators</tspan></text>
+<text x="200" y="562" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">to </tspan><tspan font-weight="900" fill="url(#accentH)">automate short-form video content creation</tspan><tspan font-weight="700" fill="rgba(255,255,255,0.98)"> and skyrocket their</tspan></text>
+<text x="200" y="592" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">YouTube, Instagram, and TikTok presence! Generate stunning Gemini</tspan></text>
+<text x="200" y="622" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">images, convert them into engaging 5-second Shorts with music, schedule</tspan></text>
+<text x="200" y="652" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">uploads, and monitor performance—all with minimal effort. </tspan><tspan font-weight="900" fill="url(#accentH)">Save hours</tspan></text>
+<text x="200" y="682" font-family="Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="23" fill="rgba(255,255,255,0.98)"><tspan font-weight="700" fill="rgba(255,255,255,0.98)">and dominate the short-form content game!</tspan></text>
+<rect x="184" y="940" width="912" height="7" rx="4" fill="url(#accentH)"/>
 </svg>
