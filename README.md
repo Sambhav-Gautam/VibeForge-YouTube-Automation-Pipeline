@@ -1,36 +1,247 @@
-![00_header__vibeforge_pipeline_youtube_automation_gemini_bulk_downloader.svg](./00_header__vibeforge_pipeline_youtube_automation_gemini_bulk_downloader.svg)
+# ⚡ VibeForge Pipeline
 
-![01_toc__table_of_contents.svg](./01_toc__table_of_contents.svg)
+### Enterprise-Grade Content Orchestration & Automation Engine
 
-![02_why__why_vibeforge.svg](./02_why__why_vibeforge.svg)
+[](https://github.com/your-username/vibeforge-pipeline)
+[](https://github.com/features/actions)
+[](https://python.org)
+[](https://deepmind.google/technologies/gemini/)
 
-![03_workflow__workflow_overview.svg](./03_workflow__workflow_overview.svg)
+> **⚖️ Compliance & Legal Notice**
+> This system leverages headless browser automation and unofficial API usage patterns. It is intended strictly for **research and private testing**. Public deployment or commercial use may violate the Terms of Service of target platforms (YouTube, Google). Proceed with caution.
 
-![04_structure__project_structure.svg](./04_structure__project_structure.svg)
+-----
 
-![05_quickstart__quick_start.svg](./05_quickstart__quick_start.svg)
+## 🏗 System Architecture
 
-![06_step1__step_1_bulk_content_generation.svg](./06_step1__step_1_bulk_content_generation.svg)
+VibeForge is not just a script; it is an **event-driven micro-pipeline**. It decouples content generation (AI) from distribution (YouTube), bridged by a robust rendering engine.
 
-![07_step2__step_2_download_images.svg](./07_step2__step_2_download_images.svg)
+### High-Level Data Flow
 
-![08_step3__step_3_generate_shorts.svg](./08_step3__step_3_generate_shorts.svg)
+```mermaid
+flowchart TD
+    subgraph "Phase 1: Generative Core"
+        A[User / Cron] -->|Trigger| B(Gemini Web Client)
+        B -->|Prompt Engineering| C[AI Image Generation]
+        C -->|Share Token| D[Public Share Links]
+    end
 
-![09_step4__step_4_automated_uploads.svg](./09_step4__step_4_automated_uploads.svg)
+    subgraph "Phase 2: Asset Retrieval"
+        D -->|Input| E[Puppeteer Headless Cluster]
+        E -->|Scrape| F[High-Res Image Assets]
+        F -->|Store| G[(Local / Cloud Storage)]
+    end
 
-![10_step5__step_5_analytics_dashboard.svg](./10_step5__step_5_analytics_dashboard.svg)
+    subgraph "Phase 3: Synthesis Engine"
+        G -->|Input| H[MoviePy Renderer]
+        I[Audio Library] -->|Inject| H
+        H -->|Render| J[MP4 Compilation]
+        J -->|Output| K[Artifact Staging]
+    end
 
-![11_stack__tech_stack.svg](./11_stack__tech_stack.svg)
+    subgraph "Phase 4: Distribution & CI/CD"
+        K -->|Commit/Push| L[GitHub Repository]
+        L -->|Trigger| M{GitHub Actions Runner}
+        M -->|OAuth 2.0| N[YouTube Data API v3]
+        N -->|Upload| O((YouTube Shorts))
+    end
 
-![12_best__best_practices.svg](./12_best__best_practices.svg)
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style O fill:#ff0000,stroke:#333,stroke-width:2px,color:#fff
+    style M fill:#2088ff,stroke:#333,stroke-width:2px,color:#fff
+```
 
-![13_trouble__troubleshooting.svg](./13_trouble__troubleshooting.svg)
+-----
 
-![14_roadmap__roadmap.svg](./14_roadmap__roadmap.svg)
+## 🚀 Key Features
 
-![15_contrib__contributing.svg](./15_contrib__contributing.svg)
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Generative AI** | Gemini Pro | Generates 90+ cinematic vertical images/hour via browser automation loops. |
+| **Stealth Scraper** | Puppeteer | Headless node script that handles lazy-loading, pagination, and asset extraction without API costs. |
+| **Render Farm** | MoviePy | Python-based video compositor. Handles resizing (1080x1920), audio mixing, and fading. |
+| **Orchestrator** | GitHub Actions | Serverless cron jobs that handle authentication refresh and scheduled uploading. |
+| **Telemetry** | Next.js / Vercel | Real-time dashboard tracking view velocity, subscriber delta, and pipeline health. |
 
-![16_license__license.svg](./16_license__license.svg)
+-----
 
-![17_ack__acknowledgments.svg](./17_ack__acknowledgments.svg)
+## 📂 Engineering Directory Structure
 
+```text
+VibeForge-Pipeline/
+├── .github/workflows/           # CI/CD Orchestration
+│   ├── production_upload.yml    # Master upload logic
+│   └── telemetry_sync.yml       # Dashboard data fetchers
+├── ChatBotAutomation/           # Headless Browser Logic
+│   ├── generators/              # Prompt injection scripts
+│   └── extractors/              # Puppeteer downloaders
+├── Core-Engine/                 # Python Rendering Logic
+│   ├── composer.py              # Video assembly implementation
+│   └── utils/                   # Image processing helpers
+├── Assets/                      # Binary Storage
+│   ├── audio_stems/             # Copyright-cleared music
+│   └── raw_images/              # Downloaded assets buffer
+├── Backend/                     # Analytics Microservice
+│   └── stats_aggregator.py      # YouTube Analytics API fetcher
+└── Dashboard/                   # Next.js Frontend
+    ├── components/              # React UI components
+    └── public/data.json         # Static data source
+```
+
+-----
+
+## 🛠️ Installation & Setup
+
+### 1\. Environment Configuration
+
+The pipeline requires specific credentials to operate. Store these in your `.env` file locally or **GitHub Secrets** for production.
+
+```bash
+# Security Credentials
+CLIENT_ID="<google_client_id>"
+CLIENT_SECRET="<google_client_secret>"
+REFRESH_TOKEN="<long_lived_refresh_token>"
+
+# Pipeline Config
+MAX_DAILY_UPLOADS=5
+RENDER_FPS=30
+```
+
+### 2\. Dependency Injection
+
+**Python (Renderer & Backend):**
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+# Key libs: moviepy, google-auth, pandas
+```
+
+**Node.js (Scraper & Dashboard):**
+
+```bash
+npm install
+# Key libs: puppeteer, fs-extra
+```
+
+-----
+
+## ⚙️ Operational Workflow
+
+### Phase 1: Bulk Generation (Gemini)
+
+> **Strategy:** We bypass API costs by utilizing the web interface via console injection.
+
+1.  Navigate to `ChatBotAutomation/generators/script.js`.
+2.  Copy the script.
+3.  Open Google Gemini (Personal Account).
+4.  Paste into Console.
+5.  **Result:** An array of shareable public links.
+
+### Phase 2: Asset Extraction (Puppeteer)
+
+> **Strategy:** The downloader mimics human behavior to avoid bot detection.
+
+```mermaid
+sequenceDiagram
+    participant Node as Node.js Script
+    participant Browser as Puppeteer (Headless)
+    participant Cloud as Gemini CDN
+
+    Node->>Browser: Launch Instance
+    loop For each Link
+        Browser->>Cloud: GET Public Link
+        Cloud-->>Browser: Render Page
+        Browser->>Browser: Auto-Scroll (Lazy Load)
+        Browser->>Cloud: Extract img.src (High Res)
+        Browser-->>Node: Download Buffer
+        Node->>Node: Save to /raw_images
+    end
+    Node->>Browser: Close Instance
+```
+
+### Phase 3: Composition & Upload
+
+The `production_upload.yml` workflow triggers the Python renderer.
+
+  * **Input:** Random image from `/raw_images` + Random track from `/audio_stems`.
+  * **Process:**
+    1.  Image resized to `1080x1920`.
+    2.  Ken Burns effect (pan/zoom) applied (optional).
+    3.  Audio normalized to -14 LUFS.
+    4.  Video encoded to H.264 `.mp4`.
+  * **Output:** Uploaded to YouTube via API v3 with metadata (Tags, Title, Description).
+
+-----
+
+## 📊 Telemetry & Dashboard
+
+The dashboard provides a "Single Pane of Glass" view of the channel network.
+
+**Data Schema (`dashboard_data.json`):**
+
+```json
+{
+  "updated_at": "2025-11-26T20:00:00Z",
+  "channels": [
+    {
+      "id": "UC_xyz123",
+      "name": "Daily Motivation",
+      "metrics": {
+        "views_7d": 15400,
+        "subs_net": 45,
+        "last_upload_status": "SUCCESS"
+      }
+    }
+  ]
+}
+```
+
+-----
+
+## 🛑 Troubleshooting / FAQ
+
+\<details\>
+\<summary\>\<strong\>Error: \<code\>QuotaExceeded\</code\> (YouTube API)\</strong\>\</summary\>
+
+> **Diagnosis:** You have hit the daily write limit (usually 1,600 units for free tier).
+> **Resolution:**
+>
+> 1.  Implement a rotation logic to switch API keys.
+> 2.  Reduce `MAX_DAILY_UPLOADS` in config.
+> 3.  Request a quota extension from Google Cloud Console.
+
+\</details\>
+
+\<details\>
+\<summary\>\<strong\>Error: Puppeteer \<code\>SelectorNotFound\</code\>\</strong\>\</summary\>
+
+> **Diagnosis:** Gemini changed their DOM structure (CSS classes).
+> **Resolution:** Inspect the Gemini page, find the new class name for the image container, and update `gemini.js` constants.
+
+\</details\>
+
+-----
+
+## 🗺️ Roadmap
+
+  - [ ] **v2.0:** Dockerize the entire rendering engine.
+  - [ ] **v2.1:** Implement Whisper AI for auto-caption generation.
+  - [ ] **v3.0:** Migrate from local JSON to PostgreSQL for analytics.
+
+-----
+
+## 🤝 Contribution
+
+We follow the **GitFlow** workflow.
+
+1.  Fork the Project.
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your Changes.
+4.  Open a Pull Request.
+
+-----
+
+**License:** MIT  
+**Maintained by:** Sambhav Gautam
