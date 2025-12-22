@@ -1,26 +1,26 @@
 [
   {
     "channel": "AI Models",
-    "start_date": "2025-12-14",
-    "end_date": "2025-12-20",
-    "views": 995,
-    "minutesWatched": 76,
+    "start_date": "2025-12-15",
+    "end_date": "2025-12-21",
+    "views": 1008,
+    "minutesWatched": 79,
     "subsGained": 1,
     "subsLost": 1
   },
   {
     "channel": "BrainRotMemes",
-    "start_date": "2025-12-14",
-    "end_date": "2025-12-20",
-    "views": 157,
+    "start_date": "2025-12-15",
+    "end_date": "2025-12-21",
+    "views": 156,
     "minutesWatched": 6,
     "subsGained": 0,
     "subsLost": 0
   },
   {
     "channel": "BrainRot",
-    "start_date": "2025-12-14",
-    "end_date": "2025-12-20",
+    "start_date": "2025-12-15",
+    "end_date": "2025-12-21",
     "views": 91,
     "minutesWatched": 1,
     "subsGained": 0,
@@ -28,17 +28,17 @@
   },
   {
     "channel": "GenZ",
-    "start_date": "2025-12-14",
-    "end_date": "2025-12-20",
-    "views": 864,
+    "start_date": "2025-12-15",
+    "end_date": "2025-12-21",
+    "views": 865,
     "minutesWatched": 31,
     "subsGained": 0,
     "subsLost": 0
   },
   {
     "channel": "Illusions",
-    "start_date": "2025-12-14",
-    "end_date": "2025-12-20",
+    "start_date": "2025-12-15",
+    "end_date": "2025-12-21",
     "views": 165,
     "minutesWatched": 6,
     "subsGained": 0,
@@ -46,11 +46,6 @@
   },
   {
     "channel": "Motivational",
-    "start_date": "2025-12-14",
-    "end_date": "2025-12-20",
-    "views": 1,
-    "minutesWatched": 0,
-    "subsGained": 0,
-    "subsLost": 0
+    "error": "No data returned (no activity or private data)"
   }
 ]
