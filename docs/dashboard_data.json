@@ -1,22 +1,27 @@
 [
   {
     "channel": "AI Models",
-    "start_date": "2026-01-16",
-    "end_date": "2026-01-22",
-    "views": 3200,
-    "minutesWatched": 318,
-    "subsGained": 7,
+    "start_date": "2026-01-17",
+    "end_date": "2026-01-23",
+    "views": 3303,
+    "minutesWatched": 332,
+    "subsGained": 10,
     "subsLost": 4
   },
   {
     "channel": "BrainRotMemes",
-    "error": "No data returned (no activity or private data)"
+    "start_date": "2026-01-17",
+    "end_date": "2026-01-23",
+    "views": 1,
+    "minutesWatched": 0,
+    "subsGained": 0,
+    "subsLost": 0
   },
   {
     "channel": "BrainRot",
-    "start_date": "2026-01-16",
-    "end_date": "2026-01-22",
-    "views": 20,
+    "start_date": "2026-01-17",
+    "end_date": "2026-01-23",
+    "views": 16,
     "minutesWatched": 0,
     "subsGained": 0,
     "subsLost": 0
@@ -27,8 +32,8 @@
   },
   {
     "channel": "Illusions",
-    "start_date": "2026-01-16",
-    "end_date": "2026-01-22",
+    "start_date": "2026-01-17",
+    "end_date": "2026-01-23",
     "views": 3,
     "minutesWatched": 0,
     "subsGained": 0,
