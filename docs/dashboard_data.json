@@ -1,39 +1,34 @@
 [
   {
     "channel": "AI Models",
-    "start_date": "2026-01-23",
-    "end_date": "2026-01-29",
-    "views": 4215,
-    "minutesWatched": 415,
-    "subsGained": 11,
-    "subsLost": 4
+    "start_date": "2026-01-24",
+    "end_date": "2026-01-30",
+    "views": 4124,
+    "minutesWatched": 403,
+    "subsGained": 10,
+    "subsLost": 3
   },
   {
     "channel": "BrainRotMemes",
-    "start_date": "2026-01-23",
-    "end_date": "2026-01-29",
-    "views": 5,
+    "start_date": "2026-01-24",
+    "end_date": "2026-01-30",
+    "views": 4,
     "minutesWatched": 0,
     "subsGained": 0,
     "subsLost": 0
   },
   {
     "channel": "BrainRot",
-    "start_date": "2026-01-23",
-    "end_date": "2026-01-29",
-    "views": 6,
+    "start_date": "2026-01-24",
+    "end_date": "2026-01-30",
+    "views": 9,
     "minutesWatched": 0,
     "subsGained": 0,
     "subsLost": 0
   },
   {
     "channel": "GenZ",
-    "start_date": "2026-01-23",
-    "end_date": "2026-01-29",
-    "views": 1,
-    "minutesWatched": 0,
-    "subsGained": 0,
-    "subsLost": 0
+    "error": "No data returned (no activity or private data)"
   },
   {
     "channel": "Illusions",
