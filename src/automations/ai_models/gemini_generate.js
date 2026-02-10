@@ -1,18 +1,23 @@
 import { GoogleGenAI } from "@google/genai";
 import fs from "fs";
 import path from "path";
+import "dotenv/config";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-const baseDir = path.join(process.cwd(), "AI_Models");
+const defaultBaseDir = path.join(process.cwd(), "src", "automations", "ai_models", "Youtube", "Res"); // Default legacy path
+const baseDir = process.argv[2] ? path.resolve(process.argv[2]) : defaultBaseDir;
+
 if (!fs.existsSync(baseDir)) fs.mkdirSync(baseDir, { recursive: true });
 
-// Randomized arrays
-const outfits = ["casual wear","evening gown","traditional attire","sportswear","cocktail dress","summer outfit","winter fashion"];
-const locations = ["urban street","beach","mountain trail","luxury hotel","public park","historic site","studio setup"];
-const moods = ["candid shot","posed shot","cinematic angle","editorial style","close-up portrait","full-body fashion shot"];
-const styles = ["high-quality photographic style","elegant and professional modeling style","artistic and cinematic style","natural light fashion photography","dramatic lighting fashion shoot"];
+console.log(`📂 Output directory: ${baseDir}`);
 
-function randomChoice(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+// Randomized arrays
+const outfits = ["casual wear", "evening gown", "traditional attire", "sportswear", "cocktail dress", "summer outfit", "winter fashion"];
+const locations = ["urban street", "beach", "mountain trail", "luxury hotel", "public park", "historic site", "studio setup"];
+const moods = ["candid shot", "posed shot", "cinematic angle", "editorial style", "close-up portrait", "full-body fashion shot"];
+const styles = ["high-quality photographic style", "elegant and professional modeling style", "artistic and cinematic style", "natural light fashion photography", "dramatic lighting fashion shoot"];
+
+function randomChoice(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
 const topic = `female model in ${randomChoice(outfits)}, ${randomChoice(moods)}, modeling in a ${randomChoice(locations)}, ${randomChoice(styles)}`;
 
@@ -53,7 +58,16 @@ async function main() {
   const videoFilePath = path.join(baseDir, "output.mp4");
   await ai.files.download({ file: videoFile, downloadPath: videoFilePath });
 
-  console.log(`🎬 Video saved to ${videoFilePath}`);
+  // Output JSON for the python pipeline to capture
+  const outputData = {
+    videoPath: videoFilePath,
+    title: title,
+    description: description,
+    tags: tags.split(",")
+  };
+  console.log("JSON_OUTPUT_START");
+  console.log(JSON.stringify(outputData));
+  console.log("JSON_OUTPUT_END");
 }
 
 await main();

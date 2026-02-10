@@ -118,20 +118,34 @@ VibeForge-Pipeline/
 
 ### 1\. Environment Configuration
 
-The pipeline requires specific credentials to operate. Store these in your `.env` file locally or **GitHub Secrets** for production.
+1.  Copy the example configuration:
+    ```bash
+    cp .env.example .env
+    ```
+2.  Fill in your credentials in `.env`. **Do not commit this file.**
 
 ```bash
-# Security Credentials
+# Google Gemini API Key (Required for Phase 3)
+GEMINI_API_KEY="your_api_key_here"
+
+# Google Client Credentials
 CLIENT_ID="<google_client_id>"
 CLIENT_SECRET="<google_client_secret>"
 REFRESH_TOKEN="<long_lived_refresh_token>"
-
-# Pipeline Config
-MAX_DAILY_UPLOADS=5
-RENDER_FPS=30
 ```
 
-### 2\. Dependency Injection
+### 2\. GitHub Secrets Configuration
+
+To enable the autonomous workflow, add the following secrets in **Settings > Secrets and variables > Actions**:
+
+| Secret Name | Description | Example Value |
+| :--- | :--- | :--- |
+| `GEMINI_API_KEY` | Your Google AI Studio API Key | `AIzaSy...` |
+| `TOKEN_AI_MODELS_PICKLE` | Base64 encoded `token_ai_models.pickle` | `gASVcQsAAAAAAABkcXVAh...` |
+
+> **Tip:** maintain the base64 encoding for the pickle file to ensure binary data is transferred correctly.
+
+### 3\. Dependency Injection
 
 **Python (Renderer & Backend):**
 

@@ -1,0 +1,53 @@
+name: 🤖 Autonomous AI Models Pipeline
+
+on:
+  schedule:
+    # Run every 2 days at 14:00 UTC
+    - cron: '0 14 */2 * *'
+  workflow_dispatch:
+    # Manual run button
+
+permissions:
+  contents: write
+
+jobs:
+  autonomous_upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Python Dependencies
+        run: |
+          pip install google-api-python-client google-auth-oauthlib google-auth-httplib2 python-dotenv
+
+      - name: Install Node Dependencies
+        run: |
+          npm install @google/genai dotenv
+
+      - name: 🔐 Decode YouTube Credentials
+        env:
+          TOKEN_AI_MODELS_PICKLE: ${{ secrets.TOKEN_AI_MODELS_PICKLE }}
+        run: |
+          echo "$TOKEN_AI_MODELS_PICKLE" | base64 -d > token_ai_models.pickle
+
+      - name: 🎥 Generate & Upload Content
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python src/automations/ai_models/unified_pipeline.py
+
+      - name: 🧹 Cleanup (Optional)
+        if: always()
+        run: |
+          rm -f token_ai_models.pickle
