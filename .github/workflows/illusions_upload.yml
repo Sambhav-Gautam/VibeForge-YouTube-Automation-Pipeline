@@ -30,10 +30,10 @@ jobs:
           echo "✅ Secrets decoded successfully."
 
       - name: Upload Illusions Short
-        run: python illusions_automation/illusions_upload.py
+        run: python src/automations/illusions/illusions_upload.py
 
       - name: Commit Updated Index
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update illusions upload index"
-          file_pattern: illusions_automation/illusions_last_index.txt
+          file_pattern: src/automations/illusions/illusions_last_index.txt

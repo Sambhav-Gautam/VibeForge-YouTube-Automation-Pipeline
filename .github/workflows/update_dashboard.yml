@@ -46,7 +46,7 @@ jobs:
           echo "✅ Secrets decoded successfully."
 
       - name: Fetch YouTube Analytics Data
-        run: python backend/fetch_analytics.py
+        run: python src/core/backend/fetch_analytics.py
 
       - name: Commit and Push Updated Dashboard JSON
         uses: stefanzweifel/git-auto-commit-action@v5

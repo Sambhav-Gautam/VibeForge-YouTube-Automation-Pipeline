@@ -33,7 +33,7 @@ jobs:
 
       - name: Upload Motivational Video
         run: |
-          python motivational_automation/local_upload_test_motivational.py
+          python src/automations/motivational/local_upload_test_motivational.py
 
       - name: Configure Git for pushing updates
         run: |
@@ -42,7 +42,7 @@ jobs:
 
       - name: Commit updated index file
         run: |
-          git add motivational_automation/current_index_motivational.txt
+          git add src/automations/motivational/current_index_motivational.txt
           git commit -m "Update current index for next motivational upload" || echo "No changes to commit"
 
       - name: Push updated index to repository

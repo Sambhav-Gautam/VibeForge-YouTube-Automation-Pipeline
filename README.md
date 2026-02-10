@@ -158,7 +158,7 @@ npm install
 
 > **Strategy:** We bypass API costs by utilizing the web interface via console injection.
 
-1.  Navigate to `ChatBotAutomation/generators/script.js`.
+1.  Navigate to `src/scraper/generators/script.js`.
 2.  Copy the script.
 3.  Open Google Gemini (Personal Account).
 4.  Paste into Console.
@@ -190,7 +190,7 @@ sequenceDiagram
 
 The `production_upload.yml` workflow triggers the Python renderer.
 
-  * **Input:** Random image from `/raw_images` + Random track from `/audio_stems`.
+  * **Input:** Random image from `assets/raw_images` + Random track from `assets/audio_stems`.
   * **Process:**
     1.  Image resized to `1080x1920`.
     2.  Ken Burns effect (pan/zoom) applied (optional).

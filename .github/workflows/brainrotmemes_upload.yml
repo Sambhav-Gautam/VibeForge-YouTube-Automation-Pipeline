@@ -30,10 +30,10 @@ jobs:
           echo "✅ Secrets decoded successfully."
 
       - name: Upload BrainRotMemes Short
-        run: python brainRotMemes_automation/brainrotmemes_upload.py
+        run: python src/automations/brainrot_memes/brainrotmemes_upload.py
 
       - name: Commit Updated Index
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update brainrotmemes upload index"
-          file_pattern: brainRotMemes_automation/brainrotmemes_last_index.txt
+          file_pattern: src/automations/brainrot_memes/brainrotmemes_last_index.txt

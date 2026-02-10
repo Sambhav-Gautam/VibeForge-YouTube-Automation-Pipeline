@@ -30,10 +30,10 @@ jobs:
           echo "✅ Client secret and token decoded successfully."
 
       - name: Upload BrainRot Short
-        run: python brainRot_automation/brainrot_upload.py
+        run: python src/automations/brainrot/brainrot_upload.py
 
       - name: Commit Updated Index
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update brainrot upload index"
-          file_pattern: brainRot_automation/brainrot_last_index.txt
+          file_pattern: src/automations/brainrot/brainrot_last_index.txt
