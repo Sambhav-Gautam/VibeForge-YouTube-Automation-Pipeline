@@ -94,18 +94,17 @@
     </style>
 </head>
 <body>
-    <h1>📊 YouTube Analytics Dashboard</h1>
-    <p>Auto-updating daily using GitHub Actions + Vercel 🚀</p>
+    <h1>🛑 VibeForge: Project Shutdown</h1>
+    <p>Final Lifetime Analytics (2025 - 2026) • Pipeline Disabled</p>
     <button id="themeToggle">🌙 Toggle Dark Mode</button>
     <table id="dashboard">
         <thead>
             <tr>
                 <th>Channel</th>
-                <th>Date</th>
-                <th>Views</th>
-                <th>Minutes Watched</th>
+                <th>Veridct</th>
+                <th>Total Views</th>
+                <th>Watch Time</th>
                 <th>Subs Gained</th>
-                <th>Subs Lost</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -136,12 +135,11 @@
                     const tr = document.createElement("tr");
                     tr.innerHTML = `
                         <td>${row.channel}</td>
-                        <td>${row.date || "-"}</td>
+                        <td>${row.verdict || "-"}</td>
                         <td>${row.views ?? "-"}</td>
                         <td>${row.minutesWatched ?? "-"}</td>
                         <td>${row.subsGained ?? "-"}</td>
-                        <td>${row.subsLost ?? "-"}</td>
-                        <td>${row.error ? "❌ Error" : "✅ OK"}</td>
+                        <td>${row.status === "Final" ? "🔒 Archived" : "✅ OK"}</td>
                     `;
                     tbody.appendChild(tr);
                 });

@@ -1,46 +1,65 @@
 [
   {
     "channel": "AI Models",
-    "start_date": "2026-02-02",
-    "end_date": "2026-02-08",
-    "views": 4496,
-    "minutesWatched": 436,
-    "subsGained": 12,
-    "subsLost": 7
+    "status": "Final",
+    "views": "85,517",
+    "minutesWatched": "100.5 hrs",
+    "subsGained": 77,
+    "subsLost": 0,
+    "verdict": "🌟 Viral"
   },
   {
-    "channel": "BrainRotMemes",
-    "error": "No data returned (no activity or private data)"
+    "channel": "Illusions Matrix",
+    "status": "Final",
+    "views": "28,039",
+    "minutesWatched": "24.1 hrs",
+    "subsGained": 8,
+    "subsLost": 0,
+    "verdict": "✅ Growing"
   },
   {
-    "channel": "BrainRot",
-    "start_date": "2026-02-02",
-    "end_date": "2026-02-08",
-    "views": 5,
-    "minutesWatched": 0,
+    "channel": "Genz Automation",
+    "status": "Final",
+    "views": "18,327",
+    "minutesWatched": "13.1 hrs",
+    "subsGained": 6,
+    "subsLost": 0,
+    "verdict": "📈 Steady"
+  },
+  {
+    "channel": "AI Girls",
+    "status": "Final",
+    "views": "12,015",
+    "minutesWatched": "10.2 hrs",
+    "subsGained": 7,
+    "subsLost": 0,
+    "verdict": "🟢 Emerging"
+  },
+  {
+    "channel": "Brainrot Memes",
+    "status": "Final",
+    "views": "8,126",
+    "minutesWatched": "4.6 hrs",
     "subsGained": 0,
-    "subsLost": 0
+    "subsLost": 0,
+    "verdict": "🔼 Rising"
   },
   {
-    "channel": "GenZ",
-    "start_date": "2026-02-02",
-    "end_date": "2026-02-08",
-    "views": 86,
-    "minutesWatched": 2,
+    "channel": "Motivational Quotes",
+    "status": "Final",
+    "views": "7,767",
+    "minutesWatched": "3.5 hrs",
+    "subsGained": 3,
+    "subsLost": 0,
+    "verdict": "⚖️ Stable"
+  },
+  {
+    "channel": "Brainrot",
+    "status": "Final",
+    "views": "2,203",
+    "minutesWatched": "1.2 hrs",
     "subsGained": 0,
-    "subsLost": 0
-  },
-  {
-    "channel": "Illusions",
-    "error": "No data returned (no activity or private data)"
-  },
-  {
-    "channel": "Motivational",
-    "start_date": "2026-02-02",
-    "end_date": "2026-02-08",
-    "views": 4,
-    "minutesWatched": 0,
-    "subsGained": 1,
-    "subsLost": 0
+    "subsLost": 0,
+    "verdict": "🧪 Experimental"
   }
 ]
